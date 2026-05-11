@@ -20,15 +20,15 @@ const CopyButton: React.FC<{ text: string }> = ({ text }) => {
 
 const WebflowVariablesPage: React.FC = () => {
   const colors = [
-    { name: '--wf-color--primary', value: '#4353ff' },
-    { name: '--wf-color--primary-light', value: 'rgba(67, 83, 255, 0.1)' },
-    { name: '--wf-color--secondary', value: '#000000' },
+    { name: '--wf-color--primary', value: '#fcee0a' },
+    { name: '--wf-color--primary-light', value: 'rgba(252, 238, 10, 0.1)' },
+    { name: '--wf-color--secondary', value: '#0df0d4' },
     { name: '--wf-color--white', value: '#ffffff' },
-    { name: '--wf-color--black', value: '#000000' },
-    { name: '--wf-color--gray', value: '#f5f5f5' },
-    { name: '--wf-color--gray-dark', value: '#333333' },
-    { name: '--wf-color--success', value: '#10b981' },
-    { name: '--wf-color--error', value: '#ef4444' },
+    { name: '--wf-color--black', value: '#050505' },
+    { name: '--wf-color--gray', value: '#1a1a1a' },
+    { name: '--wf-color--gray-dark', value: '#0d0d0d' },
+    { name: '--wf-color--success', value: '#0df0d4' },
+    { name: '--wf-color--error', value: '#ff003c' },
   ];
 
   const fontSizeScale = [
@@ -56,8 +56,8 @@ const WebflowVariablesPage: React.FC = () => {
   ];
 
   const typography = [
-    { name: '--wf-font-family--base', value: "'Inter', sans-serif" },
-    { name: '--wf-font-family--heading', value: "'Outfit', sans-serif" },
+    { name: '--wf-font-family--base', value: "'Rajdhani', sans-serif" },
+    { name: '--wf-font-family--heading', value: "'Rajdhani', sans-serif" },
     { name: '--wf-line-height--tight', value: '1.1' },
     { name: '--wf-line-height--base', value: '1.5' },
     { name: '--wf-font-weight--normal', value: '400' },

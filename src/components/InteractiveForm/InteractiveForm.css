@@ -59,7 +59,7 @@
 .wf-form__textarea:focus {
   outline: none;
   border-color: var(--wf-color--primary);
-  box-shadow: 0 0 0 3px rgba(67, 83, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(252, 238, 10, 0.15);
 }
 
 .wf-form__input:disabled,
@@ -76,7 +76,7 @@
 
 .wf-form__submit {
   background-color: var(--wf-color--primary);
-  color: var(--wf-color--white);
+  color: var(--wf-color--black);
   border: none;
   border-radius: var(--wf-border-radius--base);
   padding: var(--wf-spacing--sm) var(--wf-spacing--md);
@@ -88,7 +88,8 @@
 }
 
 .wf-form__submit:hover:not(:disabled) {
-  background-color: #3241e8;
+  background-color: var(--wf-color--secondary);
+  color: var(--wf-color--black);
   transform: translateY(-1px);
 }
 
