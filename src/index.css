@@ -571,6 +571,9 @@ code {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 0.25rem;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .card-label {
