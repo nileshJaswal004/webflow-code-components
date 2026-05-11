@@ -12,10 +12,10 @@ function App() {
           <div className="nav-logo">⚡ Webflow Spellbook</div>
           <div className="nav-right">
             <div className="nav-links">
-              <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>The Great Hall</NavLink>
-              <NavLink to="/components" className={({ isActive }) => isActive ? 'active' : ''}>Spells Library</NavLink>
-              <NavLink to="/variables" className={({ isActive }) => isActive ? 'active' : ''}>Design Runes</NavLink>
-              <NavLink to="/docs" className={({ isActive }) => isActive ? 'active' : ''}>Wizard's Guide</NavLink>
+              <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
+              <NavLink to="/components" className={({ isActive }) => isActive ? 'active' : ''}>Components</NavLink>
+              <NavLink to="/variables" className={({ isActive }) => isActive ? 'active' : ''}>Variables</NavLink>
+              <NavLink to="/docs" className={({ isActive }) => isActive ? 'active' : ''}>Guide</NavLink>
             </div>
           </div>
         </nav>
@@ -39,15 +39,15 @@ function App() {
                   <div className="dashboard-card">
                     <div className="card-icon">📜</div>
                     <div className="card-count">7</div>
-                    <div className="card-label">Spells Library</div>
+                    <div className="card-label">Component Library</div>
                     <p className="card-desc">Preview and test all Webflow-ready React components in a live environment before casting them into production.</p>
-                    <NavLink to="/components" className="card-link">Cast Spells</NavLink>
+                    <NavLink to="/components" className="card-link">View Components</NavLink>
                   </div>
                   <div className="dashboard-card">
                     <div className="card-icon">🔮</div>
-                    <div className="card-label">Design Runes</div>
-                    <p className="card-desc">Explore all global CSS variables — colors, spacing, typography, shadows — the ancient runes that power every spell.</p>
-                    <NavLink to="/variables" className="card-link">View Runes</NavLink>
+                    <div className="card-label">CSS Variables</div>
+                    <p className="card-desc">Explore all global CSS variables — colors, spacing, typography, shadows — the design tokens that power every component.</p>
+                    <NavLink to="/variables" className="card-link">View Variables</NavLink>
                   </div>
                   <div className="dashboard-card">
                     <div className="card-icon">📖</div>
