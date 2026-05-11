@@ -127,7 +127,7 @@ const WebflowVariablesPage: React.FC = () => {
                   </div>
                   <div className="copyable-row">
                     <span className="variable-value">{size.value}</span>
-                    <CopyButton text={size.value} />
+                    <CopyButton text={size.value.split(' (')[0]} />
                   </div>
                   <div className="typo-preview" style={{ fontSize: `var(${size.name})`, lineHeight: 1 }}>
                     Aa
@@ -152,7 +152,7 @@ const WebflowVariablesPage: React.FC = () => {
                 </div>
                 <div className="copyable-row">
                   <span>{space.value}</span>
-                  <CopyButton text={space.value} />
+                  <CopyButton text={space.value.split(' (')[0]} />
                 </div>
               </div>
             </div>
