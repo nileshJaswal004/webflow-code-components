@@ -50,7 +50,7 @@ function App() {
                 <div className="dashboard-grid">
                   <div className="dashboard-card">
                     <div className="card-icon">🧩</div>
-                    <div className="card-count">4</div>
+                    <div className="card-count">7</div>
                     <div className="card-label">Components</div>
                     <p className="card-desc">Preview and test all Webflow-ready React components in a live environment before shipping.</p>
                     <NavLink to="/components" className="card-link">View Gallery</NavLink>

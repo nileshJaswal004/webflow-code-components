@@ -3,6 +3,9 @@ import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
 import { Alert } from '../components/Alert';
 import { Countdown } from '../components/Countdown';
+import { FAQAccordion } from '../components/FAQAccordion';
+import { InteractiveForm } from '../components/InteractiveForm';
+import { Modal } from '../components/Modal';
 
 const ComponentsDisplayPage: React.FC = () => {
   const components = [
@@ -55,13 +58,40 @@ const ComponentsDisplayPage: React.FC = () => {
         </div>
       ),
     },
+    {
+      name: 'FAQ Accordion',
+      description: 'An interactive accordion for frequently asked questions. Teaches active index state, array mapping, and conditional rendering. It supports both single and multiple open items.',
+      render: (
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <FAQAccordion allowMultiple={false} />
+        </div>
+      ),
+    },
+    {
+      name: 'Interactive Form',
+      description: 'A contact form demonstrating controlled inputs, form validation, and simulated API submission with loading and success states. A very common pattern in React.',
+      render: (
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <InteractiveForm />
+        </div>
+      ),
+    },
+    {
+      name: 'Modal Overlay',
+      description: 'A popup modal demonstrating conditional rendering over the entire screen, useEffect for keyboard events (Escape key to close), and click-outside detection to close.',
+      render: (
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <Modal />
+        </div>
+      ),
+    },
   ];
 
   return (
     <div className="page-container">
       <header className="page-header">
         <h1>Component Library</h1>
-        <p>4 starter components — from basic props to advanced React hooks.</p>
+        <p>7 starter components — from basic props to advanced React hooks and interaction patterns.</p>
       </header>
 
       <div className="component-stack">
