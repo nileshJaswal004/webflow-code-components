@@ -7,11 +7,31 @@ import { FAQAccordion } from '../components/FAQAccordion';
 import { InteractiveForm } from '../components/InteractiveForm';
 import { Modal } from '../components/Modal';
 
+interface PropDef {
+  name: string;
+  type: string;
+  defaultVal: string;
+}
+
+interface ComponentDef {
+  name: string;
+  description: string;
+  propsList: PropDef[];
+  render: React.ReactNode;
+}
+
 const ComponentsDisplayPage: React.FC = () => {
-  const components = [
+  const components: ComponentDef[] = [
     {
       name: 'Button',
-      description: 'A flexible call-to-action button with three variants (Primary, Secondary, Outline), three sizes, a disabled state, and optional link support. Demonstrates props.String, props.Variant, props.Boolean.',
+      description: 'A flexible call-to-action button with three variants, three sizes, a disabled state, and optional link support.',
+      propsList: [
+        { name: 'label', type: 'String', defaultVal: '"Click Me"' },
+        { name: 'variant', type: 'Variant (Primary, Secondary, Outline)', defaultVal: '"Primary"' },
+        { name: 'size', type: 'Variant (Small, Medium, Large)', defaultVal: '"Medium"' },
+        { name: 'disabled', type: 'Boolean', defaultVal: 'false' },
+        { name: 'href', type: 'String', defaultVal: '""' },
+      ],
       render: (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'center' }}>
           <Button label="Primary" variant="Primary" size="Medium" />
@@ -25,21 +45,28 @@ const ComponentsDisplayPage: React.FC = () => {
     },
     {
       name: 'Badge',
-      description: 'A small inline status label. Use it to tag content with contextual meaning — Default, Success, Warning, or Error. Demonstrates props.String and props.Variant.',
+      description: 'A small inline status label. Use it to tag content with contextual meaning.',
+      propsList: [
+        { name: 'text', type: 'String', defaultVal: '"Badge"' },
+        { name: 'variant', type: 'Variant (Default, Success, Warning, Error)', defaultVal: '"Default"' },
+      ],
       render: (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', justifyContent: 'center' }}>
           <Badge text="Default" variant="Default" />
           <Badge text="Success" variant="Success" />
           <Badge text="Warning" variant="Warning" />
           <Badge text="Error" variant="Error" />
-          <Badge text="New Feature" variant="Default" />
-          <Badge text="Beta" variant="Warning" />
         </div>
       ),
     },
     {
       name: 'Alert',
-      description: 'An inline notification banner with four types and an optional dismiss button. Uses useState internally to handle dismiss — a useful React state pattern. Demonstrates props.String, props.Variant, props.Boolean.',
+      description: 'An inline notification banner with four types and an optional dismiss button. Uses useState.',
+      propsList: [
+        { name: 'message', type: 'String', defaultVal: '"This is an alert message."' },
+        { name: 'type', type: 'Variant (Info, Success, Warning, Error)', defaultVal: '"Info"' },
+        { name: 'dismissible', type: 'Boolean', defaultVal: 'true' },
+      ],
       render: (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', width: '100%', maxWidth: '540px' }}>
           <Alert message="Your file has been saved successfully." type="Success" dismissible />
@@ -51,7 +78,12 @@ const ComponentsDisplayPage: React.FC = () => {
     },
     {
       name: 'Countdown Timer',
-      description: 'A dynamic real-time countdown to a target date. This is an advanced teaching example that demonstrates React lifecycle hooks (useState, useEffect) and proper cleanup to prevent memory leaks.',
+      description: 'A dynamic real-time countdown to a target date. Teaches React hooks (useState, useEffect) and cleanup.',
+      propsList: [
+        { name: 'targetDate', type: 'String (ISO 8601)', defaultVal: '"2026-01-01T00:00:00"' },
+        { name: 'title', type: 'String', defaultVal: '"Countdown"' },
+        { name: 'showLabels', type: 'Boolean', defaultVal: 'true' },
+      ],
       render: (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%', alignItems: 'center' }}>
           <Countdown targetDate={new Date(Date.now() + 1000 * 60 * 60 * 24 * 3).toISOString()} title="Event Starts In" />
@@ -60,7 +92,11 @@ const ComponentsDisplayPage: React.FC = () => {
     },
     {
       name: 'FAQ Accordion',
-      description: 'An interactive accordion for frequently asked questions. Teaches active index state, array mapping, and conditional rendering. It supports both single and multiple open items.',
+      description: 'An interactive accordion for FAQs. Teaches array mapping, and single vs multiple active items.',
+      propsList: [
+        { name: 'title', type: 'String', defaultVal: '"Frequently Asked Questions"' },
+        { name: 'allowMultiple', type: 'Boolean', defaultVal: 'false' },
+      ],
       render: (
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
           <FAQAccordion allowMultiple={false} />
@@ -69,7 +105,12 @@ const ComponentsDisplayPage: React.FC = () => {
     },
     {
       name: 'Interactive Form',
-      description: 'A contact form demonstrating controlled inputs, form validation, and simulated API submission with loading and success states. A very common pattern in React.',
+      description: 'A contact form demonstrating controlled inputs, form validation, and simulated API submission states.',
+      propsList: [
+        { name: 'formTitle', type: 'String', defaultVal: '"Contact Us"' },
+        { name: 'submitButtonText', type: 'String', defaultVal: '"Send Message"' },
+        { name: 'successMessage', type: 'String', defaultVal: '"Thank you! Your message has been received."' },
+      ],
       render: (
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
           <InteractiveForm />
@@ -78,7 +119,13 @@ const ComponentsDisplayPage: React.FC = () => {
     },
     {
       name: 'Modal Overlay',
-      description: 'A popup modal demonstrating conditional rendering over the entire screen, useEffect for keyboard events (Escape key to close), and click-outside detection to close.',
+      description: 'A popup modal demonstrating conditional rendering over the entire screen, escape key close, and click-outside detection.',
+      propsList: [
+        { name: 'buttonText', type: 'String', defaultVal: '"Open Modal"' },
+        { name: 'title', type: 'String', defaultVal: '"Modal Title"' },
+        { name: 'content', type: 'String', defaultVal: '"This is the modal content..."' },
+        { name: 'closeText', type: 'String', defaultVal: '"Close"' },
+      ],
       render: (
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
           <Modal />
@@ -104,6 +151,29 @@ const ComponentsDisplayPage: React.FC = () => {
               </div>
               <h2 className="component-title">{comp.name}</h2>
               <p className="component-desc">{comp.description}</p>
+              
+              <div className="props-table-container">
+                <h4 className="props-table-title">Editable Webflow Props</h4>
+                <table className="props-table">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {comp.propsList.map((prop, i) => (
+                      <tr key={i}>
+                        <td className="prop-name"><code>{prop.name}</code></td>
+                        <td className="prop-type">{prop.type}</td>
+                        <td className="prop-default"><code>{prop.defaultVal}</code></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
             </div>
             <div className="component-full-preview">
               {comp.render}

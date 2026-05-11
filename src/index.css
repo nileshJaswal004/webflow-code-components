@@ -615,6 +615,66 @@ code {
 }
 
 /* ─────────────────────────────────────────────
+   PROPS TABLE
+───────────────────────────────────────────── */
+.props-table-container {
+  margin-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1.5rem;
+}
+
+.props-table-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.props-table th,
+.props-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.props-table th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.props-table tr:last-child td {
+  border-bottom: none;
+}
+
+.prop-name code {
+  color: var(--wf-color--primary);
+  font-weight: 600;
+  background: rgba(67, 83, 255, 0.08);
+}
+
+.prop-type {
+  color: var(--text-muted);
+}
+
+.prop-default code {
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+}
+
+/* ─────────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────────── */
 @media (max-width: 768px) {
