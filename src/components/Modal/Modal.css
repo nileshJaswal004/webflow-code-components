@@ -1,21 +1,25 @@
 /* Trigger Button */
 .wf-modal-trigger {
-  background-color: var(--wf-color--primary);
-  color: var(--wf-color--white);
-  border: none;
+  background: linear-gradient(135deg, #ae0001, #7b0d1e);
+  color: #f5e6c8;
+  border: 1px solid rgba(200, 169, 81, 0.5);
   border-radius: var(--wf-border-radius--base);
   padding: var(--wf-spacing--sm) var(--wf-spacing--md);
-  font-family: var(--wf-font-family--base);
+  font-family: 'Cinzel', serif;
   font-size: var(--wf-font-size--base);
   font-weight: var(--wf-font-weight--semibold);
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: transform var(--wf-transition--duration-fast) ease, box-shadow var(--wf-transition--duration-fast) ease;
-  box-shadow: 0 4px 14px rgba(67, 83, 255, 0.35);
+  transition: all var(--wf-transition--duration-fast) ease;
+  box-shadow: 0 4px 14px rgba(174, 0, 1, 0.35);
 }
 
 .wf-modal-trigger:hover {
+  background: linear-gradient(135deg, #c8a951, #9a7a28);
+  color: #0a080f;
+  border-color: #c8a951;
+  box-shadow: 0 6px 20px rgba(200, 169, 81, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(67, 83, 255, 0.5);
 }
 
 /* Overlay */
@@ -118,17 +122,20 @@
 
 .wf-modal-close-btn {
   background-color: var(--wf-color--gray);
-  color: var(--text-color);
-  border: none;
+  color: #f5e6c8;
+  border: 1px solid rgba(200, 169, 81, 0.25);
   border-radius: var(--wf-border-radius--base);
   padding: var(--wf-spacing--xs) var(--wf-spacing--md);
-  font-family: inherit;
+  font-family: 'Cinzel', serif;
   font-size: var(--wf-font-size--sm);
   font-weight: var(--wf-font-weight--medium);
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background-color var(--wf-transition--duration-fast) ease;
+  transition: all var(--wf-transition--duration-fast) ease;
 }
 
 .wf-modal-close-btn:hover {
-  background-color: #e5e7eb;
+  background-color: var(--wf-color--gray-dark);
+  border-color: rgba(200, 169, 81, 0.5);
+  color: #c8a951;
 }
