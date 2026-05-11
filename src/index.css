@@ -583,8 +583,10 @@ code {
 .card-icon {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
-  background: rgba(67,83,255,0.08);
+  border-radius: 0;
+  background: rgba(252, 238, 10, 0.1);
+  border: 1px solid #fcee0a;
+  color: #fcee0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -606,8 +608,10 @@ code {
 .card-label {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: #0df0d4;
   margin-bottom: 0.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
 }
 
 .card-desc {
@@ -621,17 +625,33 @@ code {
 .card-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--wf-color--primary);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #fcee0a;
+  color: #000;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
-  transition: gap 0.2s ease;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  position: relative;
+  transition: all 0.2s ease;
+  margin-top: auto;
+  border: none;
 }
 
 .card-link::after {
   content: '→';
   transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover .card-link {
+  background-color: #0df0d4;
+  color: #000;
+  box-shadow: 0 0 15px rgba(13, 240, 212, 0.5);
 }
 
 .dashboard-card:hover .card-link::after {

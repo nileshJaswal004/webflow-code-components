@@ -41,8 +41,8 @@ function App() {
             <Route path="/" element={
               <div className="page-container">
                 <div className="dashboard-hero">
-                  <div className="dashboard-eyebrow">✦ システム // SYSTEM.WEBFLOW.COMPONENTS</div>
-                  <h1 className="dashboard-title">BUILD. PREVIEW. SHIP.</h1>
+                  <div className="dashboard-eyebrow">/// SYSTEM.WEBFLOW.COMPONENTS_</div>
+                  <h1 className="dashboard-title">BUILD_PREVIEW_SHIP_</h1>
                   <p className="dashboard-subtitle">
                     [ACCESS GRANTED] Your team's neural workspace for building premium React components, managing design tokens, and syncing them directly into the Webflow mainframe.
                   </p>
@@ -51,19 +51,19 @@ function App() {
                   <div className="dashboard-card">
                     <div className="card-icon">🧩</div>
                     <div className="card-count">7</div>
-                    <div className="card-label">Components</div>
+                    <div className="card-label">/// MODULE_COMPONENTS_</div>
                     <p className="card-desc">Preview and test all Webflow-ready React components in a live environment before shipping.</p>
                     <NavLink to="/components" className="card-link">View Gallery</NavLink>
                   </div>
                   <div className="dashboard-card">
                     <div className="card-icon">🎨</div>
-                    <div className="card-label">Design Tokens</div>
+                    <div className="card-label">/// DESIGN_TOKENS_</div>
                     <p className="card-desc">Explore all global CSS variables — colors, spacing, typography, shadows — used across every component.</p>
                     <NavLink to="/variables" className="card-link">View Variables</NavLink>
                   </div>
                   <div className="dashboard-card">
                     <div className="card-icon">📖</div>
-                    <div className="card-label">Team Guide</div>
+                    <div className="card-label">/// TEAM_GUIDE_</div>
                     <p className="card-desc">Step-by-step instructions for adding components, variables, and bundling them into Webflow.</p>
                     <NavLink to="/docs" className="card-link">Read the Guide</NavLink>
                   </div>
