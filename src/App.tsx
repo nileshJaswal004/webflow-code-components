@@ -44,6 +44,7 @@ function App() {
                   <div className="dashboard-eyebrow">/// SYSTEM.WEBFLOW.COMPONENTS_</div>
                   <h1 className="dashboard-title">BUILD_PREVIEW_SHIP_</h1>
                   <p className="dashboard-subtitle">
+                    "Wake up, Samurai. We have a dashboard to burn." <br/><br/>
                     [ACCESS GRANTED] Your team's neural workspace for building premium React components, managing design tokens, and syncing them directly into the Webflow mainframe.
                   </p>
                 </div>
