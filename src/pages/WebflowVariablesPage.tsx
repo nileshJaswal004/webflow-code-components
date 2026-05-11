@@ -1,5 +1,5 @@
 import React from 'react';
-import './WebflowVariablesPage.css';
+
 
 const formatRemToPx = (valueStr: string) => {
   if (!valueStr.includes('rem')) return valueStr;
