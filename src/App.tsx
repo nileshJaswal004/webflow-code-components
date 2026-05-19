@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { useState } from 'react';
-import webflowConfig from '../webflow.json';
 import './index.css';
 import ComponentsDisplayPage from './pages/ComponentsDisplayPage';
 import WebflowVariablesPage from './pages/WebflowVariablesPage';
@@ -8,9 +7,6 @@ import DocumentationPage from './pages/DocumentationPage';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showWarning, setShowWarning] = useState(
-    (webflowConfig as { library: { id: string } }).library.id === 'starter-component-library'
-  );
 
   return (
     <Router>
@@ -54,18 +50,6 @@ function App() {
         )}
 
         <main className="main-content">
-          {/* ── Default ID warning banner ── */}
-          {showWarning && (
-            <div className="id-warning-banner">
-              <span>⚠️</span>
-              <span>
-                <strong>Setup required:</strong> <code>webflow.json</code> still uses the default library ID{' '}
-                <code>"starter-component-library"</code>. Rename it to avoid collisions with other teams.{' '}
-                <a href="/docs">See setup guide →</a>
-              </span>
-              <button className="id-warning-banner__close" onClick={() => setShowWarning(false)} aria-label="Dismiss">✕</button>
-            </div>
-          )}
           <Routes>
             <Route path="/" element={
               <div className="page-container">

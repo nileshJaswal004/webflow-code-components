@@ -443,10 +443,10 @@ const ComponentsDisplayPage: React.FC = () => {
       render: p => (
         <FAQAccordion
           title={String(p.title)}
-          question1={String(p.question1)}
-          answer1={String(p.answer1)}
-          question2={String(p.question2)}
-          answer2={String(p.answer2)}
+          q1={String(p.question1)}
+          a1={String(p.answer1)}
+          q2={String(p.question2)}
+          a2={String(p.answer2)}
         />
       ),
     },
@@ -467,9 +467,9 @@ const ComponentsDisplayPage: React.FC = () => {
       ],
       render: p => (
         <InteractiveForm
-          title={String(p.title)}
-          submitLabel={String(p.submitLabel)}
-          successMsg={String(p.successMsg)}
+          formTitle={String(p.title)}
+          submitButtonText={String(p.submitLabel)}
+          successMessage={String(p.successMsg)}
         />
       ),
     },
@@ -490,9 +490,9 @@ const ComponentsDisplayPage: React.FC = () => {
       ],
       render: p => (
         <Modal
-          triggerLabel={String(p.triggerLabel)}
+          buttonText={String(p.triggerLabel)}
           title={String(p.title)}
-          body={String(p.body)}
+          content={String(p.body)}
         />
       ),
     },
