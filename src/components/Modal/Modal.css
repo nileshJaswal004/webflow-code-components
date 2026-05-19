@@ -1,24 +1,23 @@
 /* Trigger Button */
 .wf-modal-trigger {
-  background: linear-gradient(135deg, #ae0001, #7b0d1e);
-  color: #f5e6c8;
-  border: 1px solid rgba(200, 169, 81, 0.5);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.5);
   border-radius: var(--wf-border-radius--base);
   padding: var(--wf-spacing--sm) var(--wf-spacing--md);
-  font-family: 'Cinzel', serif;
-  font-size: var(--wf-font-size--base);
+  font-family: 'Inter', var(--wf-font-family--base);
+  font-size: var(--wf-font-size--sm);
   font-weight: var(--wf-font-weight--semibold);
-  letter-spacing: 1px;
+  letter-spacing: 0;
   cursor: pointer;
   transition: all var(--wf-transition--duration-fast) ease;
-  box-shadow: 0 4px 14px rgba(174, 0, 1, 0.35);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
 }
 
 .wf-modal-trigger:hover {
-  background: linear-gradient(135deg, #c8a951, #9a7a28);
-  color: #0a080f;
-  border-color: #c8a951;
-  box-shadow: 0 6px 20px rgba(200, 169, 81, 0.4);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
   transform: translateY(-2px);
 }
 
@@ -29,7 +28,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
@@ -44,8 +43,9 @@
   background: var(--card-bg);
   width: 100%;
   max-width: 500px;
-  border-radius: var(--wf-border-radius--lg);
-  box-shadow: var(--wf-shadow--xl);
+  border-radius: var(--wf-border-radius--xl);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--wf-shadow--xl), 0 0 60px rgba(99, 102, 241, 0.1);
   font-family: var(--wf-font-family--base);
   animation: modalSlideUp var(--wf-transition--duration-base) var(--wf-transition--easing);
   overflow: hidden;
@@ -56,11 +56,11 @@
 @keyframes modalSlideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -76,33 +76,36 @@
 .wf-modal-title {
   margin: 0;
   font-family: var(--wf-font-family--heading);
-  font-size: var(--wf-font-size--xl);
+  font-size: var(--wf-font-size--lg);
   font-weight: var(--wf-font-weight--bold);
   color: var(--text-color);
+  letter-spacing: -0.3px;
 }
 
 .wf-modal-close-icon {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1;
   color: var(--text-muted);
   cursor: pointer;
-  padding: 0;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color var(--wf-transition--duration-fast) ease;
+  border-radius: 6px;
+  transition: color var(--wf-transition--duration-fast) ease, background var(--wf-transition--duration-fast) ease;
 }
 
 .wf-modal-close-icon:hover {
   color: var(--text-color);
+  background: var(--bg-subtle);
 }
 
 /* Body */
 .wf-modal-body {
   padding: var(--wf-spacing--lg);
-  color: var(--text-color);
+  color: var(--text-muted);
   font-size: var(--wf-font-size--base);
   line-height: var(--wf-line-height--relaxed);
 }
@@ -121,21 +124,21 @@
 }
 
 .wf-modal-close-btn {
-  background-color: var(--wf-color--gray);
-  color: #f5e6c8;
-  border: 1px solid rgba(200, 169, 81, 0.25);
+  background-color: rgba(99, 102, 241, 0.1);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.25);
   border-radius: var(--wf-border-radius--base);
   padding: var(--wf-spacing--xs) var(--wf-spacing--md);
-  font-family: 'Cinzel', serif;
+  font-family: 'Inter', var(--wf-font-family--base);
   font-size: var(--wf-font-size--sm);
-  font-weight: var(--wf-font-weight--medium);
-  letter-spacing: 0.5px;
+  font-weight: var(--wf-font-weight--semibold);
+  letter-spacing: 0;
   cursor: pointer;
   transition: all var(--wf-transition--duration-fast) ease;
 }
 
 .wf-modal-close-btn:hover {
-  background-color: var(--wf-color--gray-dark);
-  border-color: rgba(200, 169, 81, 0.5);
-  color: #c8a951;
+  background-color: #6366f1;
+  color: white;
+  border-color: #6366f1;
 }

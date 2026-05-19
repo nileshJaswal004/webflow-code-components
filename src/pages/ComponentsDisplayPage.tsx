@@ -1,4 +1,9 @@
 import React from 'react';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// STEP 1 OF 2 — Import your component here
+// Pattern: import { MyComponent } from '../components/MyComponent';
+// ─────────────────────────────────────────────────────────────────────────────
 import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
 import { Alert } from '../components/Alert';
@@ -21,6 +26,10 @@ interface ComponentDef {
 }
 
 const ComponentsDisplayPage: React.FC = () => {
+  // ─────────────────────────────────────────────────────────────────────────────
+  // STEP 2 OF 2 — Add a preview entry for your component in this array
+  // Copy the object shape below and fill in your component's details.
+  // ─────────────────────────────────────────────────────────────────────────────
   const components: ComponentDef[] = [
     {
       name: 'Button',

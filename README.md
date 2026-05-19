@@ -35,6 +35,21 @@ WEBFLOW_API_TOKEN="your_token_here"
 
 > If no token is found, the CLI will open a browser for Workspace authorization when you run the import command.
 
+### ⚠️ Rename Your Library ID (Important for Teams)
+
+Open `webflow.json` and change the `id` field to something **unique to your project**:
+
+```json
+{
+  "library": {
+    "name": "My Project Components",
+    "id": "my-project-unique-id"
+  }
+}
+```
+
+> If two developers on the **same Webflow Workspace** use the default `"starter-component-library"` ID, the second import will **silently overwrite** the first team's library. Change it before your first import.
+
 ### 3. Preview Locally
 
 ```bash

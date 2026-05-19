@@ -1,65 +1,67 @@
 :root {
-  /* --- Colors (Gryffindor / Hogwarts) --- */
-  --wf-color--primary: #c8a951;
-  --wf-color--primary-light: rgba(200, 169, 81, 0.1);
-  --wf-color--secondary: #ae0001;
-  --wf-color--white: #ffffff;
-  --wf-color--black: #0a080f;
-  --wf-color--gray: #2a1f35;
-  --wf-color--gray-dark: #12091c;
-  --wf-color--success: #4a7c59;
-  --wf-color--error: #ae0001;
+  /* --- Colors --- */
+  --wf-color--primary:        #6366f1;  /* Indigo — main CTA / accent */
+  --wf-color--primary-light:  rgba(99, 102, 241, 0.1);
+  --wf-color--secondary:      #8b5cf6;  /* Violet — secondary accent */
+  --wf-color--white:          #ffffff;
+  --wf-color--black:          #0c0e14;
+  --wf-color--gray:           #1e2330;
+  --wf-color--gray-dark:      #12151f;
+  --wf-color--success:        #10b981;
+  --wf-color--warning:        #f59e0b;
+  --wf-color--error:          #ef4444;
 
   /* --- Typography --- */
-  --wf-font-family--base: 'EB Garamond', Georgia, serif;
-  --wf-font-family--heading: 'Cinzel', 'Georgia', serif;
+  --wf-font-family--base:    'Inter', system-ui, -apple-system, sans-serif;
+  --wf-font-family--heading: 'Outfit', 'Inter', sans-serif;
 
   /* Font Sizes */
-  --wf-font-size--xs: 0.75rem;    /* 12px */
-  --wf-font-size--sm: 0.875rem;   /* 14px */
-  --wf-font-size--base: 1rem;     /* 16px */
-  --wf-font-size--lg: 1.125rem;   /* 18px */
-  --wf-font-size--xl: 1.25rem;    /* 20px */
-  --wf-font-size--2xl: 1.5rem;    /* 24px */
-  --wf-font-size--3xl: 1.875rem;  /* 30px */
-  --wf-font-size--4xl: 2.25rem;   /* 36px */
-  --wf-font-size--5xl: 3rem;      /* 48px */
+  --wf-font-size--xs:   0.75rem;    /* 12px */
+  --wf-font-size--sm:   0.875rem;   /* 14px */
+  --wf-font-size--base: 1rem;       /* 16px */
+  --wf-font-size--lg:   1.125rem;   /* 18px */
+  --wf-font-size--xl:   1.25rem;    /* 20px */
+  --wf-font-size--2xl:  1.5rem;     /* 24px */
+  --wf-font-size--3xl:  1.875rem;   /* 30px */
+  --wf-font-size--4xl:  2.25rem;    /* 36px */
+  --wf-font-size--5xl:  3rem;       /* 48px */
 
   /* Line Heights */
-  --wf-line-height--tight: 1.1;
-  --wf-line-height--snug: 1.3;
-  --wf-line-height--base: 1.5;
+  --wf-line-height--tight:   1.1;
+  --wf-line-height--snug:    1.3;
+  --wf-line-height--base:    1.5;
   --wf-line-height--relaxed: 1.625;
-  --wf-line-height--loose: 2;
+  --wf-line-height--loose:   2;
 
   /* Font Weights */
-  --wf-font-weight--light: 300;
-  --wf-font-weight--normal: 400;
-  --wf-font-weight--medium: 500;
-  --wf-font-weight--semibold: 600;
-  --wf-font-weight--bold: 700;
+  --wf-font-weight--light:     300;
+  --wf-font-weight--normal:    400;
+  --wf-font-weight--medium:    500;
+  --wf-font-weight--semibold:  600;
+  --wf-font-weight--bold:      700;
   --wf-font-weight--extrabold: 800;
 
   /* --- Spacing (T-Shirt Scale) --- */
-  --wf-spacing--4xs: 0.125rem; /* 2px */
-  --wf-spacing--3xs: 0.25rem;  /* 4px */
-  --wf-spacing--2xs: 0.5rem;   /* 8px */
-  --wf-spacing--xs: 0.75rem;   /* 12px */
-  --wf-spacing--sm: 1rem;      /* 16px */
-  --wf-spacing--md: 1.5rem;    /* 24px */
-  --wf-spacing--lg: 2rem;      /* 32px */
-  --wf-spacing--xl: 3rem;      /* 48px */
+  --wf-spacing--4xs: 0.125rem; /* 2px  */
+  --wf-spacing--3xs: 0.25rem;  /* 4px  */
+  --wf-spacing--2xs: 0.5rem;   /* 8px  */
+  --wf-spacing--xs:  0.75rem;  /* 12px */
+  --wf-spacing--sm:  1rem;     /* 16px */
+  --wf-spacing--md:  1.5rem;   /* 24px */
+  --wf-spacing--lg:  2rem;     /* 32px */
+  --wf-spacing--xl:  3rem;     /* 48px */
   --wf-spacing--2xl: 4rem;     /* 64px */
   --wf-spacing--3xl: 6rem;     /* 96px */
   --wf-spacing--4xl: 8rem;     /* 128px */
 
-  /* --- Borders & Shadows --- */
-  --wf-border-radius--sm: 4px;
+  /* --- Borders & Radii --- */
+  --wf-border-radius--sm:   4px;
   --wf-border-radius--base: 6px;
-  --wf-border-radius--lg: 10px;
-  --wf-border-radius--xl: 16px;
+  --wf-border-radius--lg:   10px;
+  --wf-border-radius--xl:   16px;
   --wf-border-radius--full: 9999px;
 
+  /* --- Shadows --- */
   --wf-shadow--sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --wf-shadow--md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   --wf-shadow--lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
@@ -77,7 +79,7 @@ body {
   font-family: var(--wf-font-family--base);
   font-size: var(--wf-font-size--base);
   line-height: var(--wf-line-height--base);
-  color: var(--wf-color--black);
+  /* NOTE: colour is intentionally omitted — set it per-app in index.css */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

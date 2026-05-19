@@ -20,15 +20,16 @@ const CopyButton: React.FC<{ text: string }> = ({ text }) => {
 
 const WebflowVariablesPage: React.FC = () => {
   const colors = [
-    { name: '--wf-color--primary', value: '#c8a951' },
-    { name: '--wf-color--primary-light', value: 'rgba(200, 169, 81, 0.1)' },
-    { name: '--wf-color--secondary', value: '#ae0001' },
-    { name: '--wf-color--white', value: '#ffffff' },
-    { name: '--wf-color--black', value: '#0a080f' },
-    { name: '--wf-color--gray', value: '#2a1f35' },
-    { name: '--wf-color--gray-dark', value: '#12091c' },
-    { name: '--wf-color--success', value: '#4a7c59' },
-    { name: '--wf-color--error', value: '#ae0001' },
+    { name: '--wf-color--primary',       value: '#6366f1' },
+    { name: '--wf-color--primary-light', value: 'rgba(99, 102, 241, 0.1)' },
+    { name: '--wf-color--secondary',     value: '#8b5cf6' },
+    { name: '--wf-color--white',         value: '#ffffff' },
+    { name: '--wf-color--black',         value: '#0c0e14' },
+    { name: '--wf-color--gray',          value: '#1e2330' },
+    { name: '--wf-color--gray-dark',     value: '#12151f' },
+    { name: '--wf-color--success',       value: '#10b981' },
+    { name: '--wf-color--warning',       value: '#f59e0b' },
+    { name: '--wf-color--error',         value: '#ef4444' },
   ];
 
   const fontSizeScale = [
@@ -56,8 +57,8 @@ const WebflowVariablesPage: React.FC = () => {
   ];
 
   const typography = [
-    { name: '--wf-font-family--base', value: "'EB Garamond', serif" },
-    { name: '--wf-font-family--heading', value: "'Cinzel', serif" },
+    { name: '--wf-font-family--base',    value: "'Inter', system-ui, sans-serif" },
+    { name: '--wf-font-family--heading', value: "'Outfit', 'Inter', sans-serif" },
     { name: '--wf-line-height--tight', value: '1.1' },
     { name: '--wf-line-height--base', value: '1.5' },
     { name: '--wf-font-weight--normal', value: '400' },
@@ -144,7 +145,13 @@ const WebflowVariablesPage: React.FC = () => {
         <div className="variable-grid">
           {spacingScale.map((space) => (
             <div key={space.name} className="variable-card spacing-card">
-              <div className="spacing-preview" style={{ width: `var(${space.name})`, height: `var(${space.name})`, background: 'var(--wf-color--primary)' }} />
+              <div className="spacing-preview" style={{
+                width: `max(var(${space.name}), 12px)`,
+                height: `max(var(${space.name}), 12px)`,
+                minWidth: '12px',
+                minHeight: '12px',
+                background: 'var(--wf-color--primary)'
+              }} />
               <div className="variable-details">
                 <div className="copyable-row">
                   <code>{space.name}</code>
@@ -165,7 +172,14 @@ const WebflowVariablesPage: React.FC = () => {
         <div className="variable-grid">
           {['sm', 'md', 'lg', 'xl'].map((size) => (
             <div key={size} className="variable-card shadow-card">
-              <div className="shadow-preview" style={{ boxShadow: `var(--wf-shadow--${size})`, width: '100%', height: '60px', borderRadius: '8px', background: 'white' }} />
+            <div className="shadow-preview" style={{
+                boxShadow: `var(--wf-shadow--${size})`,
+                width: '100%',
+                height: '60px',
+                borderRadius: '8px',
+                background: 'var(--bg-subtle)',
+                border: '1px solid var(--glass-border)'
+              }} />
               <div className="variable-details">
                 <div className="copyable-row">
                   <code>--wf-shadow--{size}</code>
