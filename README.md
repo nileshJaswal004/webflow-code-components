@@ -260,6 +260,23 @@ Now run `npm start` and check the **Components** page to see it live.
 
 ---
 
+## How to Remove a Component
+
+Because this architecture is modular, removing a component is simple and clean:
+
+### Step 1 — Delete the Component Folder
+Navigate to `src/components/` and delete the folder of the component you no longer want (e.g., `src/components/FAQAccordion`).
+
+### Step 2 — Unregister it from the Playground
+Open `src/pages/ComponentsDisplayPage.tsx`:
+1. **Remove the import** at the top of the file.
+2. **Remove the component entry** from the `components` array.
+
+### Step 3 — Sync to Webflow
+Once deleted locally, run `npm run webflow:import` (or push to `main` if using CI/CD). The Webflow CLI will automatically detect the missing component and delete it from your Webflow Designer's library panel.
+
+---
+
 ## Managing CSS Variables & Design Tokens
 
 **Important:** The Webflow Code Components CLI does **not** push CSS variables from this repository into Webflow automatically. You must manage them manually to keep the Webflow Designer as the visual source of truth.

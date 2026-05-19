@@ -245,6 +245,46 @@ export default declareComponent(MyCard, {
         </div>
       </section>
 
+      {/* ── SECTION 3.5: Removing a Component ── */}
+      <section className="doc-section">
+        <h2>How to Remove a Component</h2>
+        <p className="doc-intro">
+          Because this architecture is modular, removing a component is simple and clean.
+        </p>
+
+        <div className="doc-step">
+          <div className="step-number">1</div>
+          <div className="step-content">
+            <h3>Delete the Component Folder</h3>
+            <p>
+              Navigate to <code>src/components/</code> and delete the folder of the component you no longer want (e.g., <code>src/components/FAQAccordion</code>).
+            </p>
+          </div>
+        </div>
+
+        <div className="doc-step">
+          <div className="step-number">2</div>
+          <div className="step-content">
+            <h3>Unregister it from the Playground</h3>
+            <p>Open <code>src/pages/ComponentsDisplayPage.tsx</code> and do two things:</p>
+            <ul>
+              <li><strong>Remove the import</strong> at the top of the file.</li>
+              <li><strong>Remove the component entry</strong> from the <code>components</code> array.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="doc-step">
+          <div className="step-number">3</div>
+          <div className="step-content">
+            <h3>Sync to Webflow</h3>
+            <p>
+              Once deleted locally, run <code>npm run webflow:import</code> (or push to <code>main</code> if using CI/CD). The Webflow CLI will automatically detect the missing component and delete it from your Webflow Designer's library panel.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── SECTION 4: CSS Variables & Design Tokens ── */}
       <section className="doc-section">
         <h2>4. Managing CSS Variables</h2>
