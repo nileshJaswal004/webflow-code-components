@@ -65,6 +65,21 @@ const WebflowVariablesPage: React.FC = () => {
     { name: '--wf-font-weight--bold', value: '700' },
   ];
 
+  const borderRadii = [
+    { name: '--wf-border-radius--sm',   value: '4px',     preview: '4px' },
+    { name: '--wf-border-radius--base', value: '6px',     preview: '6px' },
+    { name: '--wf-border-radius--lg',   value: '10px',    preview: '10px' },
+    { name: '--wf-border-radius--xl',   value: '16px',    preview: '16px' },
+    { name: '--wf-border-radius--full', value: '9999px',  preview: '9999px' },
+  ];
+
+  const transitions = [
+    { name: '--wf-transition--duration-fast', value: '150ms' },
+    { name: '--wf-transition--duration-base', value: '300ms' },
+    { name: '--wf-transition--duration-slow', value: '500ms' },
+    { name: '--wf-transition--easing',        value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+  ];
+
   return (
     <div className="page-container">
       <header className="page-header">
@@ -160,6 +175,53 @@ const WebflowVariablesPage: React.FC = () => {
                 <div className="copyable-row">
                   <span>{space.value}</span>
                   <CopyButton text={space.value.split(' (')[0]} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="variable-section">
+        <h2 className="section-title">Border Radius</h2>
+        <div className="variable-grid">
+          {borderRadii.map((radius) => (
+            <div key={radius.name} className="variable-card shadow-card">
+              <div className="shadow-preview" style={{
+                borderRadius: `var(${radius.name})`,
+                width: '100%',
+                height: '60px',
+                background: 'var(--bg-subtle)',
+                border: '2px solid rgba(99, 102, 241, 0.5)'
+              }} />
+              <div className="variable-details">
+                <div className="copyable-row">
+                  <code>{radius.name}</code>
+                  <CopyButton text={radius.name} />
+                </div>
+                <div className="copyable-row">
+                  <span>{radius.value}</span>
+                  <CopyButton text={radius.value} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="variable-section">
+        <h2 className="section-title">Transitions</h2>
+        <div className="variable-grid">
+          {transitions.map((trans) => (
+            <div key={trans.name} className="variable-card shadow-card">
+              <div className="variable-details">
+                <div className="copyable-row">
+                  <code>{trans.name}</code>
+                  <CopyButton text={trans.name} />
+                </div>
+                <div className="copyable-row">
+                  <span>{trans.value}</span>
+                  <CopyButton text={trans.value} />
                 </div>
               </div>
             </div>

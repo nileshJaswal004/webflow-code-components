@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { useState } from 'react';
+import webflowConfig from '../webflow.json';
 import './index.css';
 import ComponentsDisplayPage from './pages/ComponentsDisplayPage';
 import WebflowVariablesPage from './pages/WebflowVariablesPage';
@@ -7,6 +8,9 @@ import DocumentationPage from './pages/DocumentationPage';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showWarning, setShowWarning] = useState(
+    (webflowConfig as { library: { id: string } }).library.id === 'starter-component-library'
+  );
 
   return (
     <Router>
@@ -50,6 +54,18 @@ function App() {
         )}
 
         <main className="main-content">
+          {/* ── Default ID warning banner ── */}
+          {showWarning && (
+            <div className="id-warning-banner">
+              <span>⚠️</span>
+              <span>
+                <strong>Setup required:</strong> <code>webflow.json</code> still uses the default library ID{' '}
+                <code>"starter-component-library"</code>. Rename it to avoid collisions with other teams.{' '}
+                <a href="/docs">See setup guide →</a>
+              </span>
+              <button className="id-warning-banner__close" onClick={() => setShowWarning(false)} aria-label="Dismiss">✕</button>
+            </div>
+          )}
           <Routes>
             <Route path="/" element={
               <div className="page-container">
@@ -65,6 +81,14 @@ function App() {
                     components into Webflow. Manage your design tokens, document your work, and
                     deliver production-ready components with confidence.
                   </p>
+                </div>
+
+                {/* Stats bar */}
+                <div className="dashboard-stats">
+                  <div className="stat-item"><span className="stat-value">11</span><span className="stat-label">Components</span></div>
+                  <div className="stat-item"><span className="stat-value">45+</span><span className="stat-label">CSS Tokens</span></div>
+                  <div className="stat-item"><span className="stat-value">7</span><span className="stat-label">Categories</span></div>
+                  <div className="stat-item"><span className="stat-value">v1.0</span><span className="stat-label">Version</span></div>
                 </div>
 
                 <div className="dashboard-grid">

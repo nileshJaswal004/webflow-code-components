@@ -1,0 +1,72 @@
+.wf-carousel {
+  width: 100%;
+  max-width: 600px;
+}
+
+.wf-carousel__swiper {
+  border-radius: var(--wf-border-radius--xl);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+/* ─── Slide ─── */
+.wf-carousel__slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--wf-spacing--2xl) var(--wf-spacing--lg);
+  background: var(--card-bg);
+  min-height: 200px;
+  gap: var(--wf-spacing--sm);
+}
+
+.wf-carousel__slide-title {
+  font-family: var(--wf-font-family--heading);
+  font-size: var(--wf-font-size--2xl);
+  font-weight: var(--wf-font-weight--bold);
+  color: var(--text-color);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.wf-carousel__slide-desc {
+  font-size: var(--wf-font-size--base);
+  color: var(--text-muted);
+  line-height: var(--wf-line-height--relaxed);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* ─── Override Swiper theme to match dark design ─── */
+.wf-carousel .swiper-button-next,
+.wf-carousel .swiper-button-prev {
+  color: #a5b4fc;
+  width: 36px;
+  height: 36px;
+  background: rgba(99, 102, 241, 0.15);
+  border-radius: 50%;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  transition: background 0.2s ease;
+}
+
+.wf-carousel .swiper-button-next:hover,
+.wf-carousel .swiper-button-prev:hover {
+  background: rgba(99, 102, 241, 0.3);
+}
+
+.wf-carousel .swiper-button-next::after,
+.wf-carousel .swiper-button-prev::after {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.wf-carousel .swiper-pagination-bullet {
+  background: rgba(99, 102, 241, 0.3);
+  opacity: 1;
+}
+
+.wf-carousel .swiper-pagination-bullet-active {
+  background: #6366f1;
+}
