@@ -50,7 +50,9 @@ const DocumentationPage: React.FC = () => {
             <CommandBlock style={{ marginTop: '0.5rem' }} code={`WEBFLOW_API_TOKEN="your_token_here"`} />
             
             <p style={{ marginTop: '1rem', fontWeight: 600 }}>Option B: Browser Login (Easy for Solo Devs)</p>
-            <p>If you skip creating a <code>.env</code> file, the very first time you run <code>npm run webflow:import</code>, the CLI will automatically open a browser window and ask you to log into your Webflow account to authorize the Workspace.</p>
+            <p>If you skip creating a <code>.env</code> file, the very first time you run this command:</p>
+            <CommandBlock style={{ marginTop: '0.5rem', marginBottom: '0.5rem' }} code={`npm run webflow:import`} />
+            <p>The CLI will automatically open a browser window and ask you to log into your Webflow account to authorize the Workspace.</p>
             
             <div className="info-card" style={{ marginTop: '1.5rem', marginBottom: 0 }}>
               <h4>How to Log Out / Switch Accounts</h4>
