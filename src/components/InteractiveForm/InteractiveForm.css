@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: var(--wf-spacing--md);
   width: 100%;
-  max-width: 500px;
   background: var(--wf-color--surface);
   padding: var(--wf-spacing--xl);
   border-radius: var(--wf-border-radius--xl);
@@ -120,7 +119,6 @@
   text-align: center;
   gap: var(--wf-spacing--sm);
   width: 100%;
-  max-width: 500px;
   background: var(--wf-color--surface);
   padding: var(--wf-spacing--2xl) var(--wf-spacing--xl);
   border-radius: var(--wf-border-radius--xl);

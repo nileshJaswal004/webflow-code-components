@@ -186,7 +186,11 @@ const ComponentSection: React.FC<{ comp: ComponentDef }> = ({ comp }) => {
       </div>
 
       {/* ── Live Preview ── */}
-      <div className="component-full-preview">{comp.render(values)}</div>
+      <div className="component-full-preview">
+        <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
+          {comp.render(values)}
+        </div>
+      </div>
     </section>
   );
 };

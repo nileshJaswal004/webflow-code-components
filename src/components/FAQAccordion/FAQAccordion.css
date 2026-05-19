@@ -1,7 +1,6 @@
 .wf-faq {
   font-family: var(--wf-font-family--base);
   width: 100%;
-  max-width: 600px;
   background: var(--wf-color--surface);
   border-radius: var(--wf-border-radius--lg);
   border: 1px solid var(--wf-color--border);
