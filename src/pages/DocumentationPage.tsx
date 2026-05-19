@@ -1,5 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DocumentationPage.css';
+
+const CommandBlock: React.FC<{ code: string; style?: React.CSSProperties }> = ({ code, style }) => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <div className="code-block-wrapper" style={style}>
+      <div className="code-block">{code}</div>
+      <button className={`code-block-copy-btn ${copied ? 'copied' : ''}`} onClick={handleCopy}>
+        {copied ? 'Copied!' : 'Copy'}
+      </button>
+    </div>
+  );
+};
 
 const DocumentationPage: React.FC = () => {
   return (
@@ -18,11 +35,7 @@ const DocumentationPage: React.FC = () => {
           <div className="step-content">
             <h3>Clone &amp; Install</h3>
             <p>Clone this repository and install all dependencies:</p>
-            <div className="code-block">
-              git clone https://github.com/nileshUplers/webflow-code-components.git<br />
-              cd webflow-code-components<br />
-              npm install
-            </div>
+            <CommandBlock code={`git clone https://github.com/nileshUplers/webflow-code-components.git\ncd webflow-code-components\nnpm install`} />
           </div>
         </div>
 
@@ -34,9 +47,7 @@ const DocumentationPage: React.FC = () => {
             
             <p style={{ marginTop: '1rem', fontWeight: 600 }}>Option A: Environment Variable (Recommended for Teams & CI/CD)</p>
             <p>Go to your Webflow Workspace Settings &gt; Integrations &gt; Workspace Applications to generate a token. Then create a <code>.env</code> file:</p>
-            <div className="code-block" style={{ marginTop: '0.5rem' }}>
-              WEBFLOW_API_TOKEN="your_token_here"
-            </div>
+            <CommandBlock style={{ marginTop: '0.5rem' }} code={`WEBFLOW_API_TOKEN="your_token_here"`} />
             
             <p style={{ marginTop: '1rem', fontWeight: 600 }}>Option B: Browser Login (Easy for Solo Devs)</p>
             <p>If you skip creating a <code>.env</code> file, the very first time you run <code>npm run webflow:import</code>, the CLI will automatically open a browser window and ask you to log into your Webflow account to authorize the Workspace.</p>
@@ -45,9 +56,7 @@ const DocumentationPage: React.FC = () => {
               <h4>How to Log Out / Switch Accounts</h4>
               <p style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>If you used an API token, simply change or delete the token in your <code>.env</code> file.</p>
               <p style={{ fontSize: '0.9rem' }}>If you used Browser Login, clear your cached credentials by running this command in your terminal:</p>
-              <div className="code-block" style={{ marginTop: '0.5rem' }}>
-                npx @webflow/cli logout
-              </div>
+              <CommandBlock style={{ marginTop: '0.5rem' }} code={`npx @webflow/cli logout`} />
             </div>
           </div>
         </div>
@@ -57,7 +66,7 @@ const DocumentationPage: React.FC = () => {
           <div className="step-content">
             <h3>Preview Locally</h3>
             <p>Start the local preview server to see all components and variables in the browser:</p>
-            <div className="code-block">npm start</div>
+            <CommandBlock code="npm start" />
             <p style={{ marginTop: '0.75rem', opacity: 0.8, fontSize: '0.9rem' }}>
               Opens <code>http://localhost:3000</code> — use the <strong>Components</strong>, <strong>Variables</strong>, and <strong>Guide</strong> tabs.
             </p>
@@ -95,7 +104,7 @@ const DocumentationPage: React.FC = () => {
         <div className="info-card" style={{ marginBottom: '2rem', border: '1px solid var(--wf-color--primary)', background: 'var(--wf-color--primary-light)' }}>
           <h3 style={{ color: 'var(--wf-color--primary)' }}>⚡ The Fast Way (Recommended)</h3>
           <p>Run our scaffolding script to instantly generate the React component, CSS, Webflow registration file, and barrel exports all at once:</p>
-          <div className="code-block" style={{ marginTop: '1rem', marginBottom: '1rem' }}>npm run create:component MyCard</div>
+          <CommandBlock style={{ marginTop: '1rem', marginBottom: '1rem' }} code="npm run create:component MyCard" />
           <p>After running this, you can skip directly to <strong>Step 6</strong> below to add it to the local preview page.</p>
         </div>
 
@@ -343,7 +352,7 @@ export default declareComponent(MyCard, {
           <div className="step-number">1</div>
           <div className="step-content">
             <h3>Manual Upload</h3>
-            <div className="code-block">npm run webflow:import</div>
+            <CommandBlock code="npm run webflow:import" />
             <p style={{ marginTop: '0.75rem', opacity: 0.8, fontSize: '0.9rem' }}>
               The CLI will check your <code>.env</code> for the API token, bundle all <code>*.webflow.tsx</code> files, and upload the library to your Workspace.
             </p>

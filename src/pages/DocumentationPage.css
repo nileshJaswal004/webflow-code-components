@@ -149,6 +149,11 @@
 }
 
 /* ─── Code Block ─── */
+.code-block-wrapper {
+  position: relative;
+  margin: 0.75rem 0;
+}
+
 .code-block {
   background: #0d1117;
   color: #c9d1d9;
@@ -157,10 +162,36 @@
   font-family: 'Fira Code', 'Courier New', monospace;
   font-size: 0.82rem;
   line-height: 1.7;
-  margin: 0.75rem 0;
   overflow-x: auto;
   border: 1px solid rgba(255,255,255,0.06);
   white-space: pre;
+  margin: 0;
+}
+
+.code-block-copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.code-block-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.code-block-copy-btn.copied {
+  background: var(--wf-color--success);
+  color: white;
+  border-color: var(--wf-color--success);
 }
 
 /* ─── Grid ─── */
