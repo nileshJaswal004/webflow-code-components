@@ -93,7 +93,7 @@ code {
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: -0.5px;
-  color: #f1f5f9;
+  color: var(--text-color);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -137,8 +137,8 @@ code {
 }
 
 .nav-links a.active {
-  color: #a5b4fc;
-  background: rgba(99, 102, 241, 0.12);
+  color: var(--wf-color--primary);
+  background: var(--wf-color--primary-light);
   font-weight: 600;
 }
 

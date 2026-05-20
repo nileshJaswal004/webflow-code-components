@@ -46,28 +46,27 @@
 }
 
 .wf-button--secondary {
-  background-color: var(--wf-color--gray);
-  color: #e2e8f0;
-  border-color: rgba(99, 102, 241, 0.15);
+  background-color: var(--wf-color--primary-light);
+  color: var(--wf-color--primary);
+  border-color: transparent;
 }
 
 .wf-button--secondary:hover:not(.wf-button--disabled) {
-  background-color: var(--wf-color--gray-dark);
-  border-color: rgba(99, 102, 241, 0.3);
-  color: #a5b4fc;
+  background-color: #c7d2fe;
+  color: #4338ca;
   transform: translateY(-1px);
 }
 
 .wf-button--outline {
   background-color: transparent;
-  color: #a5b4fc;
-  border-color: rgba(99, 102, 241, 0.4);
+  color: var(--wf-color--primary);
+  border-color: var(--wf-color--primary);
 }
 
 .wf-button--outline:hover:not(.wf-button--disabled) {
-  background: rgba(99, 102, 241, 0.1);
-  color: #c7d2fe;
-  border-color: rgba(99, 102, 241, 0.6);
+  background: var(--wf-color--primary-light);
+  color: var(--wf-color--primary);
+  border-color: var(--wf-color--primary);
   transform: translateY(-1px);
 }
 
