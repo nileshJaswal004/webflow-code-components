@@ -8,46 +8,20 @@ import React, { useState, useMemo } from 'react';
 
 // ── STEP 1: Import components ─────────────────────────────────────────────
 import { Button }           from '../components/Button';
-import { Badge }            from '../components/Badge';
-import { Card }             from '../components/Card';
-import { Countdown }        from '../components/Countdown';
-import { FAQAccordion }     from '../components/FAQAccordion';
-import { InteractiveForm }  from '../components/InteractiveForm';
-import { Modal }            from '../components/Modal';
 
 // ── Types ─────────────────────────────────────────────────────────────────
-interface PlaygroundProp {
-  name: string;
-  label: string;
-  type: 'string' | 'boolean' | 'variant' | 'number';
-  default: unknown;
-  options?: string[];
-}
 
-interface PropDoc {
-  name: string;
-  type: string;
-  defaultVal: string;
-}
 
-interface ComponentDef {
-  name: string;
-  group: string;
-  description: string;
-  propsDocs: PropDoc[];
-  playgroundProps: PlaygroundProp[];
-  render: (props: Record<string, unknown>) => React.ReactNode;
-}
 
 // ── ComponentSection — manages its own playground state ───────────────────
-const ComponentSection: React.FC<{ comp: ComponentDef }> = ({ comp }) => {
-  const [values, setValues] = useState<Record<string, unknown>>(
+const ComponentSection = ({ comp }) => {
+  const [values, setValues] = useState(
     Object.fromEntries(comp.playgroundProps.map(p => [p.name, p.default]))
   );
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const updateProp = (name: string, value: unknown) =>
+  const updateProp = (name, value) =>
     setValues(prev => ({ ...prev, [name]: value }));
 
   const generateJSX = () => {
@@ -133,7 +107,7 @@ const ComponentSection: React.FC<{ comp: ComponentDef }> = ({ comp }) => {
                         onChange={e => updateProp(prop.name, e.target.value)}
                         className="playground-select"
                       >
-                        {prop.options!.map(opt => (
+                        {prop.options && prop.options.map(opt => (
                           <option key={opt}>{opt}</option>
                         ))}
                       </select>
@@ -192,182 +166,31 @@ const ComponentSection: React.FC<{ comp: ComponentDef }> = ({ comp }) => {
 };
 
 // ── Main Page ─────────────────────────────────────────────────────────────
-const ComponentsDisplayPage: React.FC = () => {
+const ComponentsDisplayPage = () => {
   const [search, setSearch] = useState('');
   const [activeGroup, setActiveGroup] = useState('All');
 
   // ── STEP 2: Add component entries here ───────────────────────────────
-  const components: ComponentDef[] = [
+  const components = [
     {
       name: 'Button',
       group: 'Basic',
-      description:
-        'A versatile button with three variants (Primary, Secondary, Outline) and three sizes. Use it as a standalone CTA or within forms.',
+      description: 'A versatile button component with multiple sizes and variants.',
       propsDocs: [
-        { name: 'label',    type: 'String',  defaultVal: 'Click Me' },
-        { name: 'variant',  type: 'Variant', defaultVal: 'Primary' },
-        { name: 'size',     type: 'Variant', defaultVal: 'Medium' },
-        { name: 'disabled', type: 'Boolean', defaultVal: 'false' },
+        { name: 'label', type: 'String', defaultVal: 'Click Me' },
+        { name: 'variant', type: 'Variant', defaultVal: 'Primary' },
+        { name: 'size', type: 'Variant', defaultVal: 'Medium' },
       ],
       playgroundProps: [
-        { name: 'label',    label: 'Label',    type: 'string',  default: 'Click Me' },
-        { name: 'variant',  label: 'Variant',  type: 'variant', default: 'Primary',  options: ['Primary', 'Secondary', 'Outline'] },
-        { name: 'size',     label: 'Size',     type: 'variant', default: 'Medium',   options: ['Small', 'Medium', 'Large'] },
-        { name: 'disabled', label: 'Disabled', type: 'boolean', default: false },
+        { name: 'label', label: 'Label', type: 'string', default: 'Click Me' },
+        { name: 'variant', label: 'Variant', type: 'variant', default: 'Primary', options: ['Primary', 'Secondary', 'Outline'] },
+        { name: 'size', label: 'Size', type: 'variant', default: 'Medium', options: ['Small', 'Medium', 'Large'] },
       ],
       render: p => (
         <Button
           label={String(p.label)}
-          variant={p.variant as 'Primary' | 'Secondary' | 'Outline'}
-          size={p.size as 'Small' | 'Medium' | 'Large'}
-          disabled={Boolean(p.disabled)}
-        />
-      ),
-    },
-    {
-      name: 'Badge',
-      group: 'Basic',
-      description:
-        'A small inline label for statuses, categories, or highlights. Four semantic variants: Default, Success, Warning, Error.',
-      propsDocs: [
-        { name: 'text',    type: 'String',  defaultVal: 'Badge' },
-        { name: 'variant', type: 'Variant', defaultVal: 'Default' },
-      ],
-      playgroundProps: [
-        { name: 'text',    label: 'Text',    type: 'string',  default: 'New' },
-        { name: 'variant', label: 'Variant', type: 'variant', default: 'Default', options: ['Default', 'Success', 'Warning', 'Error'] },
-      ],
-      render: p => (
-        <Badge
-          text={String(p.text)}
-          variant={p.variant as 'Default' | 'Success' | 'Warning' | 'Error'}
-        />
-      ),
-    },
-    {
-      name: 'Card',
-      group: 'Content',
-      description:
-        'A content card with optional badge, title, description, and CTA link. Three variants: Default, Outlined, and Elevated.',
-      propsDocs: [
-        { name: 'title',       type: 'String',  defaultVal: 'Card Title' },
-        { name: 'description', type: 'String',  defaultVal: 'A short description.' },
-        { name: 'badge',       type: 'String',  defaultVal: '' },
-        { name: 'ctaText',     type: 'String',  defaultVal: 'Learn More' },
-        { name: 'ctaUrl',      type: 'String',  defaultVal: '#' },
-        { name: 'variant',     type: 'Variant', defaultVal: 'Default' },
-      ],
-      playgroundProps: [
-        { name: 'title',       label: 'Title',       type: 'string',  default: 'Getting Started' },
-        { name: 'description', label: 'Description', type: 'string',  default: 'Everything you need to build and deploy your first Webflow code component.' },
-        { name: 'badge',       label: 'Badge',       type: 'string',  default: 'New' },
-        { name: 'ctaText',     label: 'CTA Text',    type: 'string',  default: 'Read More' },
-        { name: 'variant',     label: 'Variant',     type: 'variant', default: 'Default', options: ['Default', 'Outlined', 'Elevated'] },
-      ],
-      render: p => (
-        <Card
-          title={String(p.title)}
-          description={String(p.description)}
-          badge={String(p.badge)}
-          ctaText={String(p.ctaText)}
-          ctaUrl="#"
-          variant={p.variant as 'Default' | 'Outlined' | 'Elevated'}
-        />
-      ),
-    },
-    {
-      name: 'Countdown',
-      group: 'Advanced',
-      description:
-        'A real-time countdown timer to a specific date. Uses useState + useEffect to tick every second. Configurable title and label visibility.',
-      propsDocs: [
-        { name: 'targetDate', type: 'String',  defaultVal: '2026-01-01T00:00:00' },
-        { name: 'title',      type: 'String',  defaultVal: 'Countdown' },
-        { name: 'showLabels', type: 'Boolean', defaultVal: 'true' },
-      ],
-      playgroundProps: [
-        { name: 'targetDate', label: 'Target Date', type: 'string',  default: '2027-01-01T00:00:00' },
-        { name: 'title',      label: 'Title',       type: 'string',  default: 'Countdown to Launch' },
-        { name: 'showLabels', label: 'Show Labels', type: 'boolean', default: true },
-      ],
-      render: p => (
-        <Countdown
-          targetDate={String(p.targetDate)}
-          title={String(p.title)}
-          showLabels={Boolean(p.showLabels)}
-        />
-      ),
-    },
-    {
-      name: 'FAQ Accordion',
-      group: 'Content',
-      description:
-        'An expandable FAQ accordion. Items open and close independently. Up to 5 Q&A pairs configurable from the Webflow Designer.',
-      propsDocs: [
-        { name: 'title',      type: 'String', defaultVal: 'FAQ' },
-        { name: 'question1',  type: 'String', defaultVal: 'Question 1' },
-        { name: 'answer1',    type: 'String', defaultVal: 'Answer 1' },
-      ],
-      playgroundProps: [
-        { name: 'title',     label: 'Title',      type: 'string', default: 'Frequently Asked Questions' },
-        { name: 'question1', label: 'Question 1', type: 'string', default: 'What is Webflow Code Components?' },
-        { name: 'answer1',   label: 'Answer 1',   type: 'string', default: 'Webflow Code Components let you build custom React components and import them directly into the Webflow Designer.' },
-        { name: 'question2', label: 'Question 2', type: 'string', default: 'Do I need to know React?' },
-        { name: 'answer2',   label: 'Answer 2',   type: 'string', default: 'Yes, a basic understanding of React is required to build custom components.' },
-      ],
-      render: p => (
-        <FAQAccordion
-          title={String(p.title)}
-          q1={String(p.question1)}
-          a1={String(p.answer1)}
-          q2={String(p.question2)}
-          a2={String(p.answer2)}
-        />
-      ),
-    },
-    {
-      name: 'Interactive Form',
-      group: 'Advanced',
-      description:
-        'A validated contact form with client-side error handling and a success state. Demonstrates controlled inputs and conditional rendering.',
-      propsDocs: [
-        { name: 'title',       type: 'String', defaultVal: 'Contact Us' },
-        { name: 'submitLabel', type: 'String', defaultVal: 'Send Message' },
-        { name: 'successMsg',  type: 'String', defaultVal: 'Message sent!' },
-      ],
-      playgroundProps: [
-        { name: 'title',       label: 'Form Title',       type: 'string', default: 'Get in Touch' },
-        { name: 'submitLabel', label: 'Submit Button',    type: 'string', default: 'Send Message' },
-        { name: 'successMsg',  label: 'Success Message',  type: 'string', default: "Thanks! We'll get back to you soon." },
-      ],
-      render: p => (
-        <InteractiveForm
-          formTitle={String(p.title)}
-          submitButtonText={String(p.submitLabel)}
-          successMessage={String(p.successMsg)}
-        />
-      ),
-    },
-    {
-      name: 'Modal',
-      group: 'Advanced',
-      description:
-        'A dialog modal with overlay, header, body, and footer. Demonstrates event handling, overlay click-to-close, and focus management.',
-      propsDocs: [
-        { name: 'triggerLabel', type: 'String', defaultVal: 'Open Modal' },
-        { name: 'title',        type: 'String', defaultVal: 'Modal Title' },
-        { name: 'body',         type: 'String', defaultVal: 'Modal body text.' },
-      ],
-      playgroundProps: [
-        { name: 'triggerLabel', label: 'Trigger Label', type: 'string', default: 'Open Modal' },
-        { name: 'title',        label: 'Modal Title',   type: 'string', default: 'Confirm Action' },
-        { name: 'body',         label: 'Body Text',     type: 'string', default: 'Are you sure you want to continue? This action cannot be undone.' },
-      ],
-      render: p => (
-        <Modal
-          buttonText={String(p.triggerLabel)}
-          title={String(p.title)}
-          content={String(p.body)}
+          variant={p.variant}
+          size={p.size}
         />
       ),
     },

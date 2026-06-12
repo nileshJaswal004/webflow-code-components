@@ -4,7 +4,7 @@ import { Button } from './Button';
 
 export default declareComponent(Button, {
   name: 'Button',
-  description: 'A flexible button component with variants, sizes, and optional link support.',
+  description: 'A button component with variants and sizes.',
   group: 'Basic',
   props: {
     label: props.String({
@@ -20,14 +20,6 @@ export default declareComponent(Button, {
       name: 'Size',
       options: ['Small', 'Medium', 'Large'],
       defaultValue: 'Medium',
-    }),
-    disabled: props.Boolean({
-      name: 'Disabled',
-      defaultValue: false,
-    }),
-    href: props.String({
-      name: 'Link URL',
-      defaultValue: '',
     }),
   },
 });

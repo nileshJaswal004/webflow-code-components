@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './DocumentationPage.css';
 
-const CommandBlock: React.FC<{ code: string; style?: React.CSSProperties }> = ({ code, style }) => {
+const CommandBlock = ({ code, style }) => {
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
@@ -18,7 +18,7 @@ const CommandBlock: React.FC<{ code: string; style?: React.CSSProperties }> = ({
   );
 };
 
-const DocumentationPage: React.FC = () => {
+const DocumentationPage = () => {
   return (
     <div className="documentation-page">
       <header className="doc-hero">
@@ -131,10 +131,6 @@ const DocumentationPage: React.FC = () => {
               {`import React from 'react';
 import './MyCard.css';
 
-interface MyCardProps {
-  title?: string;
-  description?: string;
-}
 
 export const MyCard = ({ title = 'Hello', description = 'World' }: MyCardProps) => {
   return (
