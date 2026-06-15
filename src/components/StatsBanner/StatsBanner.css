@@ -1,0 +1,57 @@
+.stats-banner {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stats-banner__item {
+  flex: 1;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-right: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-banner__item:last-child {
+  border-right: none;
+}
+
+.stats-banner__value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #6343e8;
+  margin-bottom: 0.5rem;
+}
+
+.stats-banner__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .stats-banner {
+    flex-wrap: wrap;
+  }
+  .stats-banner__item {
+    flex: 1 1 50%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .stats-banner__item:nth-child(even) {
+    border-right: none;
+  }
+  .stats-banner__item:nth-child(n+3) {
+    border-bottom: none;
+  }
+}

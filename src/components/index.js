@@ -5,3 +5,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export * from './Button';
+export * from './RichCard';
+export * from './LiveCandidateFeed';
+export * from './StatsBanner';
