@@ -1,6 +1,7 @@
 {
   "name": "webflow-starter-boilerplate",
   "version": "1.0.0",
+  "homepage": "https://nileshUplers.github.io/webflow-code-components",
   "private": true,
   "homepage": "https://nileshJaswal004.github.io/webflow-code-components",
   "dependencies": {
@@ -12,6 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
