@@ -2,6 +2,10 @@
 
 A simplified guide to creating and syncing React components to Webflow.
 
+## What is a Webflow Code Component?
+
+A Webflow Code Component allows you to write custom React code, style it, and bundle it into a reusable element that can be dragged and dropped directly inside the Webflow Designer. This gives developers the full power of React—like managing state, fetching live APIs, and utilizing complex libraries—while still allowing marketing teams to easily edit text, images, and properties using Webflow's native UI.
+
 ## Use Cases & Drawbacks
 
 Before adopting React Code Components in Webflow, it is important to understand when they shine and when they might not be the best fit.
@@ -25,7 +29,7 @@ Before adopting React Code Components in Webflow, it is important to understand 
 Before you begin, clone the repository, install the dependencies, and start the local preview server:
 
 ```bash
-git clone https://github.com/nileshUplers/webflow-code-components.git
+git clone https://github.com/nileshJaswal004/webflow-code-components.git
 cd webflow-code-components
 npm install && npm start
 ```

@@ -27,6 +27,13 @@ const DocumentationPage = () => {
       </header>
 
       <section className="doc-section" style={{ marginBottom: '3rem' }}>
+        <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem' }}>What is a Webflow Code Component?</h2>
+        <p style={{ marginBottom: '2rem', lineHeight: 1.8 }}>
+          A Webflow Code Component allows you to write custom React code, style it, and bundle it into a reusable element that can be dragged and dropped directly inside the Webflow Designer. This gives developers the full power of React—like managing state, fetching live APIs, and utilizing complex libraries—while still allowing marketing teams to easily edit text, images, and properties using Webflow's native UI.
+        </p>
+      </section>
+
+      <section className="doc-section" style={{ marginBottom: '3rem' }}>
         <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem' }}>Use Cases & Drawbacks</h2>
         <p style={{ marginBottom: '2rem', opacity: 0.9 }}>Before adopting React Code Components in Webflow, it is important to understand when they shine and when they might not be the best fit.</p>
 
@@ -58,7 +65,7 @@ const DocumentationPage = () => {
           <div className="step-content">
             <h3>Prerequisites</h3>
             <p>Before you begin, clone the repository, install the dependencies, and start the local preview server:</p>
-            <CommandBlock code="git clone https://github.com/nileshUplers/webflow-code-components.git" />
+            <CommandBlock code="git clone https://github.com/nileshJaswal004/webflow-code-components.git" />
             <CommandBlock code="cd webflow-code-components" style={{ marginTop: '0.5rem' }} />
             <CommandBlock code="npm install && npm start" style={{ marginTop: '0.5rem' }} />
           </div>
