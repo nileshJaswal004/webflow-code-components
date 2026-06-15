@@ -1,11 +1,11 @@
 {
   "library": {
-    "name": "Starter Component Library",
+    "name": "Starter Component Library New",
     "components": [
       "./src/**/*.webflow.@(js|jsx|mjs|ts|tsx)"
     ],
     "description": "A starter library for Webflow custom code components.",
-    "id": "starter-component-library"
+    "id": "starter-component-library-new"
   },
   "telemetry": {
     "global": {

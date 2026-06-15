@@ -2,78 +2,46 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter', var(--wf-font-family--base);
-  font-weight: var(--wf-font-weight--semibold);
-  border-radius: var(--wf-border-radius--base);
+  border-radius: 6px;
   cursor: pointer;
-  text-decoration: none;
+  font-family: inherit;
+  transition: opacity 0.2s, background-color 0.2s, color 0.2s;
   border: 1px solid transparent;
-  transition: all var(--wf-transition--duration-base) var(--wf-transition--easing);
-  white-space: nowrap;
-  line-height: 1;
-  letter-spacing: 0;
+}
+
+.wf-button:hover {
+  opacity: 0.9;
 }
 
 /* ─── Sizes ─── */
 .wf-button--small {
-  font-size: var(--wf-font-size--sm);
-  padding: var(--wf-spacing--2xs) var(--wf-spacing--sm);
+  font-size: 14px;
+  padding: 6px 12px;
 }
 
 .wf-button--medium {
-  font-size: var(--wf-font-size--sm);
-  padding: var(--wf-spacing--xs) var(--wf-spacing--md);
+  font-size: 16px;
+  padding: 10px 20px;
 }
 
 .wf-button--large {
-  font-size: var(--wf-font-size--base);
-  padding: var(--wf-spacing--sm) var(--wf-spacing--lg);
+  font-size: 18px;
+  padding: 14px 28px;
 }
 
 /* ─── Variants ─── */
 .wf-button--primary {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: #ffffff;
-  border-color: rgba(99, 102, 241, 0.6);
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
-}
-
-.wf-button--primary:hover:not(.wf-button--disabled) {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  border-color: rgba(99, 102, 241, 0.8);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-  transform: translateY(-1px);
+  background-color: #3b82f6;
+  color: white;
 }
 
 .wf-button--secondary {
-  background-color: var(--wf-color--primary-light);
-  color: var(--wf-color--primary);
-  border-color: transparent;
-}
-
-.wf-button--secondary:hover:not(.wf-button--disabled) {
-  background-color: #c7d2fe;
-  color: #4338ca;
-  transform: translateY(-1px);
+  background-color: #e5e7eb;
+  color: #1f2937;
 }
 
 .wf-button--outline {
   background-color: transparent;
-  color: var(--wf-color--primary);
-  border-color: var(--wf-color--primary);
-}
-
-.wf-button--outline:hover:not(.wf-button--disabled) {
-  background: var(--wf-color--primary-light);
-  color: var(--wf-color--primary);
-  border-color: var(--wf-color--primary);
-  transform: translateY(-1px);
-}
-
-/* ─── Disabled ─── */
-.wf-button--disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  pointer-events: none;
-  box-shadow: none;
+  color: #3b82f6;
+  border-color: #3b82f6;
 }

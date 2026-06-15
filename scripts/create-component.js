@@ -3,11 +3,10 @@
  * Component Scaffolding Script
  * Usage: npm run create:component MyComponentName
  *
- * Creates:
- *   src/components/MyComponentName/MyComponentName.tsx
+ *   src/components/MyComponentName/MyComponentName.jsx
  *   src/components/MyComponentName/MyComponentName.css
- *   src/components/MyComponentName/MyComponentName.webflow.tsx
- *   src/components/MyComponentName/index.ts
+ *   src/components/MyComponentName/MyComponentName.webflow.jsx
+ *   src/components/MyComponentName/index.js
  *
  * Then adds the export to src/components/index.ts
  */
@@ -32,7 +31,7 @@ if (!/^[A-Z][A-Za-z0-9]+$/.test(name)) {
 // ── Paths ───────────────────────────────────────────────────────────────────
 const root       = path.resolve(__dirname, '..');
 const compDir    = path.join(root, 'src', 'components', name);
-const barrelFile = path.join(root, 'src', 'components', 'index.ts');
+const barrelFile = path.join(root, 'src', 'components', 'index.js');
 
 if (fs.existsSync(compDir)) {
   console.error(`\n❌  Component "${name}" already exists at ${compDir}\n`);
@@ -44,12 +43,7 @@ const tsx = `\
 import React from 'react';
 import './${name}.css';
 
-export interface ${name}Props {
-  title?: string;
-  // Add more props here
-}
-
-export const ${name} = ({ title = '${name}' }: ${name}Props) => {
+export const ${name} = ({ title = '${name}' }) => {
   return (
     <div className="wf-${name.toLowerCase()}">
       <h2 className="wf-${name.toLowerCase()}__title">{title}</h2>
@@ -101,10 +95,10 @@ const index = `export * from './${name}';\n`;
 
 // ── Write files ─────────────────────────────────────────────────────────────
 fs.mkdirSync(compDir, { recursive: true });
-fs.writeFileSync(path.join(compDir, `${name}.tsx`),          tsx);
+fs.writeFileSync(path.join(compDir, `${name}.jsx`),          tsx);
 fs.writeFileSync(path.join(compDir, `${name}.css`),          css);
-fs.writeFileSync(path.join(compDir, `${name}.webflow.tsx`),  webflow);
-fs.writeFileSync(path.join(compDir, 'index.ts'),             index);
+fs.writeFileSync(path.join(compDir, `${name}.webflow.jsx`),  webflow);
+fs.writeFileSync(path.join(compDir, 'index.js'),             index);
 
 // ── Update barrel export ─────────────────────────────────────────────────────
 let barrel = fs.readFileSync(barrelFile, 'utf8');
@@ -119,14 +113,14 @@ console.log(`
 ✅  Component "${name}" created successfully!
 
    src/components/${name}/
-   ├── ${name}.tsx          ← React component
+   ├── ${name}.jsx          ← React component
    ├── ${name}.css          ← Styles
-   ├── ${name}.webflow.tsx  ← Webflow registration
-   └── index.ts             ← Re-export
+   ├── ${name}.webflow.jsx  ← Webflow registration
+   └── index.js             ← Re-export
 
 📋  Next steps:
    1. Edit the files above with your component logic
-   2. Open src/pages/ComponentsDisplayPage.tsx
+   2. Open src/pages/ComponentsDisplayPage.jsx
    3. Follow the STEP 1 and STEP 2 comments to add a preview entry
    4. Run: npm start
 `);

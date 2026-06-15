@@ -1,13 +1,10 @@
 // src/components/index.ts
 // ─────────────────────────────────────────────────────────────────────────────
 // Barrel export — import any component from one place:
-//   import { Button, Card, Tabs } from '../components';
+//   import { Button } from '../components';
 // ─────────────────────────────────────────────────────────────────────────────
 
-export * from './Badge';
 export * from './Button';
-export * from './Card';
-export * from './Countdown';
-export * from './FAQAccordion';
-export * from './InteractiveForm';
-export * from './Modal';
+export * from './RichCard';
+export * from './LiveCandidateFeed';
+export * from './StatsBanner';

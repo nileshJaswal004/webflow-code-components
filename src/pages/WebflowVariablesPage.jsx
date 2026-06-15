@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CopyButton: React.FC<{ text: string }> = ({ text }) => {
+const CopyButton = ({ text }) => {
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
@@ -18,7 +18,7 @@ const CopyButton: React.FC<{ text: string }> = ({ text }) => {
   );
 };
 
-const WebflowVariablesPage: React.FC = () => {
+const WebflowVariablesPage = () => {
   const colors = [
     { name: '--wf-color--primary',       value: '#6366f1' },
     { name: '--wf-color--primary-light', value: 'rgba(99, 102, 241, 0.1)' },
