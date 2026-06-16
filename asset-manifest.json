@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/webflow-code-components/static/css/main.43b816df.css",
-    "main.js": "/webflow-code-components/static/js/main.d1cac21f.js",
+    "main.js": "/webflow-code-components/static/js/main.68acf5ca.js",
     "index.html": "/webflow-code-components/index.html",
     "main.43b816df.css.map": "/webflow-code-components/static/css/main.43b816df.css.map",
-    "main.d1cac21f.js.map": "/webflow-code-components/static/js/main.d1cac21f.js.map"
+    "main.68acf5ca.js.map": "/webflow-code-components/static/js/main.68acf5ca.js.map"
   },
   "entrypoints": [
     "static/css/main.43b816df.css",
-    "static/js/main.d1cac21f.js"
+    "static/js/main.68acf5ca.js"
   ]
 }
