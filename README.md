@@ -6,32 +6,15 @@ A simplified guide to creating and syncing React components to Webflow.
 
 A Webflow Code Component allows you to write custom React code, style it, and bundle it into a reusable element that can be dragged and dropped directly inside the Webflow Designer. This gives developers the full power of React—like managing state, fetching live APIs, and utilizing complex libraries—while still allowing marketing teams to easily edit text, images, and properties using Webflow's native UI.
 
-## Use Cases & Drawbacks
-
-Before adopting React Code Components in Webflow, it is important to understand when they shine and when they might not be the best fit.
-
-### Ideal Use Cases (Landing Pages)
-- **Advanced Interactive Elements:** Custom 3D graphics (e.g., Three.js), highly complex custom sliders, or advanced animations that exceed native Webflow interaction limits.
-- **Interactive Tools & Calculators:** ROI calculators, dynamic pricing toggles, or lead-gen quizzes embedded directly into the marketing page.
-- **Dynamic Content Fetching:** Pulling in live data from external sources (e.g., live job boards, real estate listings, or social feeds) into a landing page.
-- **Strictly Standardized Components:** Global UI elements that must remain absolutely identical across dozens of landing pages, where you only want marketing teams to tweak specific text props, not the layout.
-
-### Drawbacks & Limitations
-- **Slower for Standard UI:** Building standard landing page sections in React is significantly slower than building them visually directly in Webflow.
-- **Client Handoff Friction:** Clients or marketing teams cannot use the Webflow Designer to drag-and-drop elements or change the layout *inside* the component; they can only edit the exposed text/image props.
-- **SEO Concerns:** Because React components render client-side, text inside them might not be immediately indexed by search engines, which is critical for landing page SEO.
-- **Maintenance Overhead:** Updating the component requires a developer to edit code, rebuild, and re-import, preventing designers from making quick layout tweaks themselves.
-
 ## Step-by-Step Guide
 
 ### 0. Prerequisites
 
-Before you begin, clone the repository, install the dependencies, and start the local preview server:
+Before you begin, download the Boilerplate project folder from the Google Drive link (link to be added) and open it in your terminal. Then, install the dependencies and start the local preview server:
 
 ```bash
-git clone https://github.com/nileshJaswal004/webflow-code-components.git
-cd webflow-code-components
-npm install && npm start
+npm install
+npm start
 ```
 
 ### 1. Authenticate with Webflow
@@ -130,3 +113,18 @@ npm run delete:component MyComponent
 ```
 
 This automatically deletes the component folder and removes references from the code. Afterwards, re-run `npm run webflow:import` to update your Webflow Workspace and remove the deleted component from your library.
+
+## Use Cases & Drawbacks
+
+Before adopting React Code Components in Webflow, it is important to understand when they shine and when they might not be the best fit.
+
+### Ideal Use Cases (Landing Pages)
+- **Advanced Interactive Elements:** Custom 3D graphics (e.g., Three.js), highly complex custom sliders, or advanced animations that exceed native Webflow interaction limits.
+- **Interactive Tools & Calculators:** ROI calculators, dynamic pricing toggles, or lead-gen quizzes embedded directly into the marketing page.
+- **Dynamic Content Fetching:** Pulling in live data from external sources (e.g., live job boards, real estate listings, or social feeds) into a landing page.
+- **Strictly Standardized Components:** Global UI elements that must remain absolutely identical across dozens of landing pages, where you only want marketing teams to tweak specific text props, not the layout.
+
+### Drawbacks & Limitations
+- **Slower for Standard UI:** Building standard landing page sections in React is significantly slower than building them visually directly in Webflow.
+- **Client Handoff Friction:** Clients or marketing teams cannot use the Webflow Designer to drag-and-drop elements or change the layout *inside* the component; they can only edit the exposed text/image props.
+- **No Dynamic Looping:** You cannot use looping to dynamically add or remove multiple elements (for example, individual slides in a slider) from Webflow.

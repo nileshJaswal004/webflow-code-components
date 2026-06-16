@@ -33,41 +33,15 @@ const DocumentationPage = () => {
         </p>
       </section>
 
-      <section className="doc-section" style={{ marginBottom: '3rem' }}>
-        <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem' }}>Use Cases & Drawbacks</h2>
-        <p style={{ marginBottom: '2rem', opacity: 0.9 }}>Before adopting React Code Components in Webflow, it is important to understand when they shine and when they might not be the best fit.</p>
-
-        <div className="doc-step" style={{ borderLeft: 'none', paddingLeft: '0' }}>
-          <div className="step-content">
-            <h3 style={{ color: '#4CAF50' }}>Ideal Use Cases (Landing Pages)</h3>
-            <ul style={{ lineHeight: 1.8, marginBottom: '2rem', paddingLeft: '1.5rem' }}>
-              <li><strong>Advanced Interactive Elements:</strong> Custom 3D graphics (e.g., Three.js), highly complex custom sliders, or advanced animations that exceed native Webflow interaction limits.</li>
-              <li><strong>Interactive Tools & Calculators:</strong> ROI calculators, dynamic pricing toggles, or lead-gen quizzes embedded directly into the marketing page.</li>
-              <li><strong>Dynamic Content Fetching:</strong> Pulling in live data from external sources (e.g., live job boards, real estate listings, or social feeds) into a landing page.</li>
-              <li><strong>Strictly Standardized Components:</strong> Global UI elements that must remain absolutely identical across dozens of landing pages, where you only want marketing teams to tweak specific text props, not the layout.</li>
-            </ul>
-
-            <h3 style={{ color: '#e74c3c' }}>Drawbacks & Limitations</h3>
-            <ul style={{ lineHeight: 1.8, paddingLeft: '1.5rem' }}>
-              <li><strong>Slower for Standard UI:</strong> Building standard landing page sections in React is significantly slower than building them visually directly in Webflow.</li>
-              <li><strong>Client Handoff Friction:</strong> Clients or marketing teams cannot use the Webflow Designer to drag-and-drop elements or change the layout <em>inside</em> the component; they can only edit the exposed text/image props.</li>
-              <li><strong>SEO Concerns:</strong> Because React components render client-side, text inside them might not be immediately indexed by search engines, which is critical for landing page SEO.</li>
-              <li><strong>Maintenance Overhead:</strong> Updating the component requires a developer to edit code, rebuild, and re-import, preventing designers from making quick layout tweaks themselves.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <section className="doc-section">
         <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem' }}>Step-by-Step Guide</h2>
         <div className="doc-step">
           <div className="step-number">0</div>
           <div className="step-content">
             <h3>Prerequisites</h3>
-            <p>Before you begin, clone the repository, install the dependencies, and start the local preview server:</p>
-            <CommandBlock code="git clone https://github.com/nileshJaswal004/webflow-code-components.git" />
-            <CommandBlock code="cd webflow-code-components" style={{ marginTop: '0.5rem' }} />
-            <CommandBlock code="npm install && npm start" style={{ marginTop: '0.5rem' }} />
+            <p>Before you begin, download the Boilerplate project folder from the Google Drive link (link to be added) and open it in your terminal. Then, install the dependencies and start the local preview server:</p>
+            <CommandBlock code="npm install" />
+            <CommandBlock code="npm start" style={{ marginTop: '0.5rem' }} />
           </div>
         </div>
 
@@ -182,6 +156,30 @@ export default declareComponent(MyComponent, {
             <p style={{ marginTop: '0.75rem', opacity: 0.8, fontSize: '0.9rem' }}>
               This automatically deletes the component folder and removes references from the code. Afterwards, re-run <code>npm run webflow:import</code> to update your Webflow Workspace and remove the deleted component from your library.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="doc-section" style={{ marginBottom: '3rem' }}>
+        <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem' }}>Use Cases & Drawbacks</h2>
+        <p style={{ marginBottom: '2rem', opacity: 0.9 }}>Before adopting React Code Components in Webflow, it is important to understand when they shine and when they might not be the best fit.</p>
+
+        <div className="doc-step" style={{ borderLeft: 'none', paddingLeft: '0' }}>
+          <div className="step-content">
+            <h3 style={{ color: '#4CAF50' }}>Ideal Use Cases (Landing Pages)</h3>
+            <ul style={{ lineHeight: 1.8, marginBottom: '2rem', paddingLeft: '1.5rem' }}>
+              <li><strong>Advanced Interactive Elements:</strong> Custom 3D graphics (e.g., Three.js), highly complex custom sliders, or advanced animations that exceed native Webflow interaction limits.</li>
+              <li><strong>Interactive Tools & Calculators:</strong> ROI calculators, dynamic pricing toggles, or lead-gen quizzes embedded directly into the marketing page.</li>
+              <li><strong>Dynamic Content Fetching:</strong> Pulling in live data from external sources (e.g., live job boards, real estate listings, or social feeds) into a landing page.</li>
+              <li><strong>Strictly Standardized Components:</strong> Global UI elements that must remain absolutely identical across dozens of landing pages, where you only want marketing teams to tweak specific text props, not the layout.</li>
+            </ul>
+
+            <h3 style={{ color: '#e74c3c' }}>Drawbacks & Limitations</h3>
+            <ul style={{ lineHeight: 1.8, paddingLeft: '1.5rem' }}>
+              <li><strong>Slower for Standard UI:</strong> Building standard landing page sections in React is significantly slower than building them visually directly in Webflow.</li>
+              <li><strong>Client Handoff Friction:</strong> Clients or marketing teams cannot use the Webflow Designer to drag-and-drop elements or change the layout <em>inside</em> the component; they can only edit the exposed text/image props.</li>
+              <li><strong>No Dynamic Looping:</strong> You cannot use looping to dynamically add or remove multiple elements (for example, individual slides in a slider) from Webflow.</li>
+            </ul>
           </div>
         </div>
       </section>
