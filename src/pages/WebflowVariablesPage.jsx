@@ -8,8 +8,8 @@ const CopyButton = ({ text }) => {
     setTimeout(() => setCopied(false), 2000);
   };
   return (
-    <button 
-      onClick={handleCopy} 
+    <button
+      onClick={handleCopy}
       className={`copy-btn ${copied ? 'copied' : ''}`}
       title={`Copy: ${text}`}
     >
@@ -20,16 +20,16 @@ const CopyButton = ({ text }) => {
 
 const WebflowVariablesPage = () => {
   const colors = [
-    { name: '--wf-color--primary',       value: '#6366f1' },
+    { name: '--wf-color--primary', value: '#6366f1' },
     { name: '--wf-color--primary-light', value: 'rgba(99, 102, 241, 0.1)' },
-    { name: '--wf-color--secondary',     value: '#8b5cf6' },
-    { name: '--wf-color--white',         value: '#ffffff' },
-    { name: '--wf-color--black',         value: '#0c0e14' },
-    { name: '--wf-color--gray',          value: '#1e2330' },
-    { name: '--wf-color--gray-dark',     value: '#12151f' },
-    { name: '--wf-color--success',       value: '#10b981' },
-    { name: '--wf-color--warning',       value: '#f59e0b' },
-    { name: '--wf-color--error',         value: '#ef4444' },
+    { name: '--wf-color--secondary', value: '#8b5cf6' },
+    { name: '--wf-color--white', value: '#ffffff' },
+    { name: '--wf-color--black', value: '#0c0e14' },
+    { name: '--wf-color--gray', value: '#1e2330' },
+    { name: '--wf-color--gray-dark', value: '#12151f' },
+    { name: '--wf-color--success', value: '#10b981' },
+    { name: '--wf-color--warning', value: '#f59e0b' },
+    { name: '--wf-color--error', value: '#ef4444' },
   ];
 
   const fontSizeScale = [
@@ -57,7 +57,7 @@ const WebflowVariablesPage = () => {
   ];
 
   const typography = [
-    { name: '--wf-font-family--base',    value: "'Inter', system-ui, sans-serif" },
+    { name: '--wf-font-family--base', value: "'Inter', system-ui, sans-serif" },
     { name: '--wf-font-family--heading', value: "'Outfit', 'Inter', sans-serif" },
     { name: '--wf-line-height--tight', value: '1.1' },
     { name: '--wf-line-height--base', value: '1.5' },
@@ -66,18 +66,25 @@ const WebflowVariablesPage = () => {
   ];
 
   const borderRadii = [
-    { name: '--wf-border-radius--sm',   value: '4px',     preview: '4px' },
-    { name: '--wf-border-radius--base', value: '6px',     preview: '6px' },
-    { name: '--wf-border-radius--lg',   value: '10px',    preview: '10px' },
-    { name: '--wf-border-radius--xl',   value: '16px',    preview: '16px' },
-    { name: '--wf-border-radius--full', value: '9999px',  preview: '9999px' },
+    { name: '--wf-border-radius--sm', value: '4px', preview: '4px' },
+    { name: '--wf-border-radius--base', value: '6px', preview: '6px' },
+    { name: '--wf-border-radius--lg', value: '10px', preview: '10px' },
+    { name: '--wf-border-radius--xl', value: '16px', preview: '16px' },
+    { name: '--wf-border-radius--full', value: '9999px', preview: '9999px' },
   ];
 
   const transitions = [
     { name: '--wf-transition--duration-fast', value: '150ms' },
     { name: '--wf-transition--duration-base', value: '300ms' },
     { name: '--wf-transition--duration-slow', value: '500ms' },
-    { name: '--wf-transition--easing',        value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+    { name: '--wf-transition--easing', value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+  ];
+
+  const shadows = [
+    { name: '--wf-shadow--sm', value: '0 1px 2px rgba(0, 0, 0, 0.05)' },
+    { name: '--wf-shadow--md', value: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)' },
+    { name: '--wf-shadow--lg', value: '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.02)' },
+    { name: '--wf-shadow--xl', value: '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02)' },
   ];
 
   return (
@@ -92,8 +99,8 @@ const WebflowVariablesPage = () => {
         <div className="variable-grid">
           {colors.map((color) => (
             <div key={color.name} className="variable-card color-card">
-              <div 
-                className="color-swatch" 
+              <div
+                className="color-swatch"
                 style={{ backgroundColor: color.value, border: color.value === '#ffffff' ? '1px solid #ddd' : 'none' }}
               />
               <div className="variable-details">
@@ -232,10 +239,10 @@ const WebflowVariablesPage = () => {
       <section className="variable-section">
         <h2 className="section-title">Shadows & Utilities</h2>
         <div className="variable-grid">
-          {['sm', 'md', 'lg', 'xl'].map((size) => (
-            <div key={size} className="variable-card shadow-card">
-            <div className="shadow-preview" style={{
-                boxShadow: `var(--wf-shadow--${size})`,
+          {shadows.map((shadow) => (
+            <div key={shadow.name} className="variable-card shadow-card">
+              <div className="shadow-preview" style={{
+                boxShadow: `var(${shadow.name})`,
                 width: '100%',
                 height: '60px',
                 borderRadius: '8px',
@@ -244,8 +251,12 @@ const WebflowVariablesPage = () => {
               }} />
               <div className="variable-details">
                 <div className="copyable-row">
-                  <code>--wf-shadow--{size}</code>
-                  <CopyButton text={`--wf-shadow--${size}`} />
+                  <code>{shadow.name}</code>
+                  <CopyButton text={shadow.name} />
+                </div>
+                <div className="copyable-row">
+                  <span>{shadow.value}</span>
+                  <CopyButton text={shadow.value} />
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ A Webflow Code Component allows you to write custom React code, style it, and bu
 
 ### 0. Prerequisites
 
-Before you begin, download the Boilerplate project folder from the Google Drive link (link to be added) and open it in your terminal. Then, install the dependencies and start the local preview server:
+Before you begin, download the Boilerplate project folder from the [Google Drive link](https://drive.google.com/) and open it in your terminal. Then, install the dependencies and start the local preview server:
 
 ```bash
 npm install
@@ -27,70 +27,115 @@ npx webflow auth login
 
 This will open a browser window for you to log into your Webflow account.
 
-### 2. Create a Code Component
+### 2. Define a CSS Variable
 
-Run the scaffolding script to automatically generate your component files:
+Before building components, define your design tokens (colors, spacing, typography). Open `src/styles/webflow-variables.css` and add your new variable inside the `:root` block.
 
-```bash
-npm run create:component MyComponent
+```css
+:root {
+  /* ... existing variables ... */
+  --wf-color--brand: #ff0055;
+}
 ```
 
-This creates a folder at `src/components/MyComponent/`.
+### 3. Display it on the Variables Page
 
-### 3. Develop & Preview Locally
-
-Write your React code in `MyComponent.jsx` and style it in `MyComponent.css`.
-
-To preview your work locally:
-1. Open `src/pages/ComponentsDisplayPage.jsx`
-2. Import your component and add it to the `components` array:
+To make the variable visible and copyable in your local preview, open `src/pages/WebflowVariablesPage.jsx` and add it to the corresponding array (e.g., the `colors` array).
 
 ```jsx
-// 1. Import at the top
-import { MyComponent } from '../components';
-
-// 2. Add to the components array
-const components = [
-  {
-    name: 'MyComponent',
-    group: 'Custom',
-    description: 'My custom component.',
-    propsDocs: [],
-    playgroundProps: [
-      { name: 'title', label: 'Title', type: 'string', default: 'Hello World' }
-    ],
-    render: p => <MyComponent title={String(p.title)} />
-  }
+const colors = [
+  // ... existing colors ...
+  { name: '--wf-color--brand', value: '#ff0055' },
 ];
 ```
 
-3. Check your browser at `http://localhost:3000` to see it live!
+### 4. Create a Component Folder
 
-### 4. Add Properties for Webflow
+Create a new folder for your component inside the `src/components/` directory. For example, create `src/components/Button/`.
+
+### 5. Write the React Component
+
+Write your React component logic in `Button.jsx`. This is where you define how the component renders based on the properties passed to it.
+
+```jsx
+import React from 'react';
+import './Button.css';
+
+export const Button = ({
+  label = 'Click Me',
+  variant = 'Primary',
+  size = 'Medium',
+}) => {
+  const className = [
+    'wf-button',
+    \`wf-button--\${variant.toLowerCase()}\`,
+    \`wf-button--\${size.toLowerCase()}\`,
+  ].join(' ');
+
+  return (
+    <button className={className}>
+      {label}
+    </button>
+  );
+};
+```
+
+### 6. Style the Component
+
+Add your styling in `Button.css`. These styles will be bundled and applied in Webflow.
+
+```css
+.wf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s;
+  border: 1px solid transparent;
+}
+
+.wf-button:hover {
+  opacity: 0.9;
+}
+
+/* ─── Variants ─── */
+.wf-button--primary {
+  background-color: #3b82f6;
+  color: white;
+}
+.wf-button--secondary {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+```
+
+### 7. Add Properties for Webflow
 
 To make your component editable in Webflow, define its properties in the `.webflow.jsx` file.
 
 ```tsx
 import { declareComponent } from '@webflow/react';
 import { props } from '@webflow/data-types';
-import { MyComponent } from './MyComponent';
+import { Button } from './Button';
 
-export default declareComponent(MyComponent, {
-  name: 'My Component',
-  description: 'A custom Webflow component.',
-  group: 'Custom',
+export default declareComponent(Button, {
+  name: 'Button',
+  description: 'A versatile button component.',
+  group: 'Basic',
   props: {
-    title: props.String({
-      name: 'Title',
-      defaultValue: 'Hello World',
+    label: props.String({
+      name: 'Label',
+      defaultValue: 'Click Me',
     }),
   },
 });
 ```
 
-> **Crucial:** Make sure you also destructure these properties in your React component (e.g., `export const MyComponent = ({ title }) => { ... }`) so they actually work!
+> **Crucial:** Make sure you also destructure these properties in your React component (e.g., `export const Button = ({ label }) => { ... }`) so they actually work!
 
-### 5. Upload Component (Add to Webflow)
+### 8. Upload Component (Add to Webflow)
 
 Once your component is ready, bundle and upload it to your Webflow Workspace:
 
@@ -104,15 +149,27 @@ After the import succeeds:
 3. Press **`⇧C`** → find your component.
 4. Drag it onto the canvas and edit its properties in the right panel.
 
-### 6. Delete a Component
+## Additional Steps: Helpful Scripts
 
-To remove a component from your project, run the deletion script:
+Once you are comfortable adding components manually, you can use these helper scripts to speed up your workflow.
+
+### Create a Component Automatically
+
+Run the scaffolding script to automatically generate the folder and boilerplate files for a new component:
+
+```bash
+npm run create:component MyComponent
+```
+
+### Delete a Component
+
+To completely remove a component from your project:
 
 ```bash
 npm run delete:component MyComponent
 ```
 
-This automatically deletes the component folder and removes references from the code. Afterwards, re-run `npm run webflow:import` to update your Webflow Workspace and remove the deleted component from your library.
+This automatically deletes the component folder and removes references. Afterwards, re-run `npm run webflow:import` to update your Webflow Workspace and remove it from your library.
 
 ## Use Cases & Drawbacks
 
