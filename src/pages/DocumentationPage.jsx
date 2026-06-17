@@ -39,7 +39,7 @@ const DocumentationPage = () => {
           <div className="step-number">0</div>
           <div className="step-content">
             <h3>Prerequisites</h3>
-            <p>Before you begin, download the Boilerplate project folder from the <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer">Google Drive link</a> and open it in your terminal. Then, install the dependencies and start the local preview server:</p>
+            <p>Before you begin, download the Boilerplate project folder from the <a href="https://www.dropbox.com/scl/fo/92du6m7blvc0awbcy0p9e/AA1N27WTGE9afI4luXEqFqs?rlkey=ognvv20z6mv8hhvwc13vbsroc&st=454tz2xa&dl=0" target="_blank" rel="noopener noreferrer">Dropbox link</a> and open it in your terminal. Then, install the dependencies and start the local preview server:</p>
             <CommandBlock code="npm install" />
             <CommandBlock code="npm start" style={{ marginTop: '0.5rem' }} />
           </div>
