@@ -19,6 +19,8 @@ const CommandBlock = ({ code, style }) => {
 };
 
 const DocumentationPage = () => {
+  const [isImageEnlarged, setIsImageEnlarged] = useState(false);
+
   return (
     <div className="documentation-page">
       <header className="doc-hero">
@@ -31,6 +33,14 @@ const DocumentationPage = () => {
         <p style={{ marginBottom: '2rem', lineHeight: 1.8 }}>
           A Webflow Code Component allows you to write custom React code, style it, and bundle it into a reusable element that can be dragged and dropped directly inside the Webflow Designer. This gives developers the full power of React—like managing state, fetching live APIs, and utilizing complex libraries—while still allowing marketing teams to easily edit text, images, and properties using Webflow's native UI.
         </p>
+        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <img 
+            src={`${process.env.PUBLIC_URL}/code-component-showcase.jpg`} 
+            alt="Webflow Code Component Showcase" 
+            style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)', cursor: 'zoom-in' }} 
+            onClick={() => setIsImageEnlarged(true)}
+          />
+        </div>
       </section>
 
       <section className="doc-section">
@@ -240,6 +250,31 @@ export default declareComponent(Button, {
       <footer style={{ textAlign: 'center', padding: '2rem', opacity: 0.6 }}>
         <p>Webflow Code Components Boilerplate</p>
       </footer>
+
+      {isImageEnlarged && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+            cursor: 'zoom-out'
+          }}
+          onClick={() => setIsImageEnlarged(false)}
+        >
+          <img 
+            src={`${process.env.PUBLIC_URL}/code-component-showcase.jpg`} 
+            alt="Webflow Code Component Showcase Fullscreen" 
+            style={{ maxWidth: '90%', maxHeight: '90%', borderRadius: '8px', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }} 
+          />
+        </div>
+      )}
     </div>
   );
 };
